@@ -4,15 +4,15 @@ import {
   Route
 } from "react-router-dom";
 
-import Pag1 from "./pages/Pag1";
-import Pag2 from "./pages/Pag2";
+import Home from "./pages/Home";
+import FormGenero from "./pages/FormGenero";
 
 export function AppRoutes(){
   return (
     <Router>
       <Routes>
-        <Route path="/pag1" element={<Pag1 />}/>
-        <Route path="/pag2" element={<Pag2 />}/>
+        <Route path="/" element={<Home />}/>
+        <Route path="/FormGender" element={<FormGenero />}/>
       </Routes>
     </Router>
   )

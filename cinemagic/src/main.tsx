@@ -1,12 +1,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App'
-import Teste2 from './Teste2'
 import './index.css'
 import { AppRoutes } from './AppRoutes'
+import  NavBar from './components/navBar/NavBar';
 
-ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
+ReactDOM.createRoot(document.getElementById('body') as HTMLElement).render(
   <React.StrictMode>
+    <NavBar />
     <AppRoutes />
   </React.StrictMode>
 )

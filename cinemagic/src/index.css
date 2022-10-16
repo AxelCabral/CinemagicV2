@@ -7,7 +7,8 @@
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
-
+  background-image: url(./cinemagicFundo.png);
+  background-blend-mode: luminosity;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -67,4 +68,23 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+form.Form {
+  background-color: #e4e4e4;
+  text-align: center;
+  color: black;
+  font-size: 20px;
+  padding: 1rem;
+  margin-left: 25rem;
+  height: 6rem;
+  width: 30rem;
+  padding: 5rem 0rem 5rem 0rem;
+}
+
+input {
+  font-size: 20px;
+  margin-left: 2rem;
+  margin-bottom: 1rem;
+  padding: 7px;
 }
