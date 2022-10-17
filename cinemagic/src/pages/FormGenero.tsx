@@ -1,7 +1,4 @@
-import React, { useState, useEffect } from 'react';
-
 import '../index.css';
-import Cartaz from '../components/cartaz/Cartaz';
 
 export default function FormGenero() {
   

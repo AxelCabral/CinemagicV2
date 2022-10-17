@@ -1,10 +1,7 @@
-import { useState } from 'react'
 import './App.css'
 import '../../index.css';
 
 function NavBar() {
-  const [count, setCount] = useState(0)
-
   return (
         <nav className='navBar'>
         <ul className="menu">
