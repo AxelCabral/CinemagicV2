@@ -1,5 +1,5 @@
 import '../index.css';
-import Cartaz from '../components/cartaz/Cartaz';
+import Cartaz from './cartaz/Cartaz';
 
 export default function Home() {
   

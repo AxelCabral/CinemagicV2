@@ -4,8 +4,8 @@ import {
   Route
 } from "react-router-dom";
 
-import Home from "./pages/Home";
-import FormGenero from "./pages/FormGenero";
+import Home from "./pages/Home/Home";
+import FormGenero from "./pages/FormGenero/FormGenero";
 
 export function AppRoutes(){
   return (
