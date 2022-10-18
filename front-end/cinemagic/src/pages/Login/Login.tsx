@@ -1,5 +1,4 @@
 import './login.css';
-import logoIMG from '../../images/CinemagicFundo.png';
 import { useState } from 'react';
 
 export default function Login() {
