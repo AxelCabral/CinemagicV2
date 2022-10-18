@@ -1,6 +1,6 @@
-import '../index.css';
+import '../../index.css';
 
-export default function FormGenero() {
+export default function FormGender() {
   
     return (
             <div className="corpo-home">

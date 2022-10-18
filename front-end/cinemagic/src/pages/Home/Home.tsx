@@ -1,4 +1,4 @@
-import '../index.css';
+import '../../index.css';
 import Cartaz from './cartaz/Cartaz';
 
 export default function Home() {
