@@ -15,9 +15,6 @@ export default function Login() {
                             <span className="login-title">
                                 Bem Vindo!
                             </span>
-                            <span className="login-title">
-                                <img src={logoIMG} alt="Cinemagic-logo" />
-                            </span>
 
                             <div className="wrap-input">
                                 <input className={email !== "" ? 'has-val input-login-form' : 'input-login-form'} type="email" 
