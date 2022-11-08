@@ -1,8 +1,9 @@
-import { registerUserDTO } from "../../dtos/register_user_dto";
-import { prisma } from "../../prisma/client";
+import { registerUserDTO } from "../../../dtos/register_user_dto";
+import { prisma } from "../../../prisma/client";
+import { User } from "@prisma/client";
 
 export class registerUser {
-    async execute({name, email, password}: registerUserDTO) {
+    async execute({name, email, password}: registerUserDTO): Promise<User> {
         // Verificar email
 
         const userEmailVerify = await prisma.user.findUnique({
@@ -25,5 +26,11 @@ export class registerUser {
         });
 
         return user;
+    }
+
+    async list(){
+        const users = await prisma.user.findMany();
+
+        return { users }
     }
 }
