@@ -27,7 +27,7 @@ comando: npm i prisma-erd-generator @mermaid-js/mermaid-cli -D
 comando: npx prisma generate
 
 -Intalação de biblioteca Cors (biblioteca para segurança)
-comando: npm i @fastiry/cors
+comando: npm i @fastify/cors
 
 -Para visualização do Banco de dados via web
 comando: npx prisma studio

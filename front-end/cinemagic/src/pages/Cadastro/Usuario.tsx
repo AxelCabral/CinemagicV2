@@ -2,7 +2,7 @@ import "../../index.css";
 import React from "react";
 import { useForm } from "react-hook-form";
 
-function User() {
+export function User() {
     const {register, handleSubmit} =useForm();
     
     const onSubmit = (e: any) => {

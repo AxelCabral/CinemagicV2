@@ -33,7 +33,7 @@ export default function FormMovie() {
                                 <span className="input-effect" data-placeholder='Genero'></span>
                             </div>
                             <div className="wrap-input">
-                                <input className={duration !== "" ? 'has-val input-login-form' : 'input-login-form'} type="number" 
+                                <input className={duration !== "" ? 'has-val input-login-form' : 'input-login-form'} type="time" 
                                 value={duration}
                                 onChange={e => setDuration(e.target.value)}
                                 />
@@ -43,6 +43,7 @@ export default function FormMovie() {
                                 <input className={releaseDate !== "" ? 'has-val input-login-form' : 'input-login-form'} type="date" 
                                 value={releaseDate}
                                 onChange={e => setReleaseDate(e.target.value)}
+                                required
                                 />
                                 <span className="input-effect" data-placeholder='Data de Lançamento'></span>
                             </div>
