@@ -27,10 +27,4 @@ export class registerUser {
 
         return user;
     }
-
-    async list(){
-        const users = await prisma.user.findMany();
-
-        return { users }
-    }
 }
