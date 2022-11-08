@@ -9,7 +9,6 @@ export class deleteUser{
               email
             },
           })
-
         return deleteUser;
     }
 }
