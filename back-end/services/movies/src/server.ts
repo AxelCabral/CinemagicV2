@@ -6,15 +6,15 @@ const prisma = new PrismaClient({
     log: ['query'],
 })
 
-async function bootstrap(){
+async function bootstrap() {
     const fastify = Fastify({
         logger: true,
     })
 
-    await  fastify.register(cors, {
-        origin: true,
+    await fastify.register(cors, {
+        origin: true, //Mudar para domínio da aplicação quando em produção
     })
-    
+
     fastify.get('/movies', async () => {
 
         const movie = await prisma.movie.findMany()

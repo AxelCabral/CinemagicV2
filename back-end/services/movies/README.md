@@ -1,0 +1,44 @@
+-- Microserviço de FILMES para Aplicação CINEMAGIC
+
+passos para execução ou edição como desenvolverdor (instalação das dependências)
+
+-Instalação NODE (v18.12.0 ou superior recomendada)
+
+-Instalação TypeScript (dev)
+comando: npm i typescript -D
+
+-Instalação Fastify (dep de produção)
+comando: npm i fastify
+
+-Pacote de conversão automática de TS para JS (dev)
+comando: npm i tsx -D
+
+-Intalação do Prisma e Prisma Client (dev e prod)
+comando: npm i prisma -D
+comando: npm i @prisma/client
+
+-Para utilização de Migrations (sempre que houver edição no banco de dados)
+comando: npx prisma migrate dev
+
+-Instalação de dep para geração de ERD (dev)
+comando: npm i prisma-erd-generator @mermaid-js/mermaid-cli -D
+
+-Para gerar ERD (sempre que houver edição no banco de dados)
+comando: npx prisma generate
+
+-Intalação de biblioteca Cors (biblioteca para segurança)
+comando: npm i @fastiry/cors
+
+-Para visualização do Banco de dados via web
+comando: npx prisma studio
+
+
+Não obrigatório e recomendado (config)
+
+No arquivo settings.json (VSCode) - Para formatação automática ao salvar
+
+"[prisma]": {
+    "editor.defaultFormatter": "Prisma.prisma",
+    "editor.formatOnSave": true
+}
+
