@@ -32,6 +32,11 @@ comando: npm i @fastify/cors
 -Para visualização do Banco de dados via web
 comando: npx prisma studio
 
+-Para rodar a seed de população do banco de dados (preencher o arquivo seed.ts antes de executar)
+comando: npx prisma db seed
+
+-Intalação do Zod
+comando: npm i zod
 
 Não obrigatório e recomendado (config)
 
