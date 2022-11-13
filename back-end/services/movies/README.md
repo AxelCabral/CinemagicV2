@@ -1,6 +1,14 @@
--- Microserviço de FILMES para Aplicação CINEMAGIC
+# Serviço de FILMES para Aplicação CINEMAGIC
 
-passos para execução ou edição como desenvolverdor (instalação das dependências)
+## Tecnologias
+- Node.js
+- TypeScript
+- Fastify
+- Prisma
+- SQLite
+- Mermaid.js
+
+## Para execução ou edição como desenvolverdor (instalação das dependências)
 
 -Instalação NODE (v18.12.0 ou superior recomendada)
 
@@ -38,9 +46,9 @@ comando: npx prisma db seed
 -Intalação do Zod
 comando: npm i zod
 
-Não obrigatório e recomendado (config)
+## Não obrigatório e recomendado (config)
 
-No arquivo settings.json (VSCode) - Para formatação automática ao salvar
+No arquivo settings.json (VSCode) - Para formatação automática ao salvar e autocomplete das funções do Prisma
 
 "[prisma]": {
     "editor.defaultFormatter": "Prisma.prisma",
