@@ -9,7 +9,7 @@ export class registerUserController {
 
         const result = await register_user.execute({name, email, password});
 
-        return res.status(201).json(result);
+        return res.status(result).json(result);
 
     }
 }

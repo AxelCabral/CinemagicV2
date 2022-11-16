@@ -3,7 +3,7 @@ import { prisma } from "../../../prisma/client";
 import { Cinema } from "@prisma/client";
 
 export class registerCine {
-    async execute({name, local, country, movie_theater}: registerCineDTO): Promise<Cinema> {
+    async execute({name, local, country, movie_theater}: registerCineDTO) {
         // Verificar owner
 
         const cineVerify = await prisma.cinema.findUnique({
@@ -13,7 +13,7 @@ export class registerCine {
         });
 
         if(cineVerify){
-            // Erro
+            return 400;
         }
         
         // Registrar Cinema
@@ -26,6 +26,6 @@ export class registerCine {
             }
         });
 
-        return cinema;
+        return 201;
     }
 }

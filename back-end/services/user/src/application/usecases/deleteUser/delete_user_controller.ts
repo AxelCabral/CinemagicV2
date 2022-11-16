@@ -9,7 +9,7 @@ export class deleteUserController {
 
         const result = await delete_user.execute({email});
 
-        return res.status(201).json(result);
+        return res.status(result).json(result);
 
     }
 }

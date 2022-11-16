@@ -3,7 +3,7 @@ import { prisma } from "../../../prisma/client";
 import { User } from "@prisma/client";
 
 export class registerUser {
-    async execute({name, email, password}: registerUserDTO): Promise<User> {
+    async execute({name, email, password}: registerUserDTO) {
         // Verificar email
 
         const userEmailVerify = await prisma.user.findUnique({
@@ -13,11 +13,11 @@ export class registerUser {
         });
 
         if(userEmailVerify){
-            // Erro
+            return 400;
         }
         
         // Registrar Usuário
-        const user = await prisma.user.create({
+        await prisma.user.create({
             data: {
                 name,
                 email,
@@ -25,6 +25,6 @@ export class registerUser {
             }
         });
 
-        return user;
+        return 201;
     }
 }

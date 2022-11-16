@@ -3,12 +3,23 @@ import { prisma } from "../../../prisma/client";
 import { deleteUserDTO } from "../../../dtos/delete_user_dto";
 
 export class deleteUser{
-    async execute({email}: deleteUserDTO): Promise<User> {
-        const deleteUser = await prisma.user.delete({
+    async execute({email}: deleteUserDTO){
+      
+      const userEmailVerify = await prisma.user.findUnique({
+        where: {
+            email
+        }
+        });
+
+        if(userEmailVerify){
+            return 400;
+        }
+
+        await prisma.user.delete({
             where: {
               email
             },
           })
-        return deleteUser;
+        return 200;
     }
 }

@@ -9,7 +9,7 @@ export class registerCineController {
 
         const result = await register_cine.execute({name, local, country, movie_theater});
 
-        return res.status(201).json(result);
+        return res.status(result).json(result);
 
     }
 }
