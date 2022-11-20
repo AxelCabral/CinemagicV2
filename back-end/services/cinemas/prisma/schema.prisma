@@ -1,0 +1,45 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+generator erd {
+  provider = "prisma-erd-generator"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Cinema {
+  id         String      @id @default(uuid())
+  name       String
+  local      String
+  country    String
+  ownerEmail String
+  owner      Owner       @relation("movie_theaters", fields: [ownerEmail], references: [email], onDelete: Cascade)
+  employeers Employeer[] @relation("employeers")
+
+  @@map("cinema")
+}
+
+model Owner {
+  id             String   @id @default(uuid())
+  name           String
+  email          String   @unique
+  password       String
+  movie_theaters Cinema[] @relation("movie_theaters")
+
+  @@map("owner")
+}
+
+model Employeer {
+  id            String @id @default(uuid())
+  name          String
+  email         String @unique
+  phone_number  String
+  cineId        String
+  movie_theater Cinema @relation("employeers", fields: [cineId], references: [id], onDelete: Cascade)
+
+  @@map("employeer")
+}

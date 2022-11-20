@@ -10,7 +10,7 @@ export async function userRoutes(fastify: FastifyInstance) {
         return { user }
     });
 
-    fastify.post('/user/new', async (request, reply) => {
+    fastify.post('/users/new', async (request, reply) => {
 
         const createUserBody = z.object({
             name: z.string(),
@@ -33,12 +33,12 @@ export async function userRoutes(fastify: FastifyInstance) {
         })
     })
 
-    fastify.delete('/user/:email/delete', async (request, reply) => {
-        const email = String(request.headers.id);
+    fastify.delete('/users/:id/delete', async (request, reply) => {
+        const id = String(request.headers.id);
 
         const user = await prisma.user.findUnique({
             where: {
-                email,
+                id,
             },
         })
 
@@ -49,7 +49,7 @@ export async function userRoutes(fastify: FastifyInstance) {
         }
         await prisma.user.delete({
             where: {
-                email
+                id
             }
         })
 
@@ -58,7 +58,7 @@ export async function userRoutes(fastify: FastifyInstance) {
         })
     })
 
-    fastify.post('/user/:id/update', async (request, reply) => {
+    fastify.post('/users/:id/update', async (request, reply) => {
         const createUserBody = z.object({
             name: z.string(),
             email: z.string(),
