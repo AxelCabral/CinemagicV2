@@ -1,0 +1,7 @@
+blue-1: #2521FF;
+purple-1: #4623DE;
+purple-2: #7733F5;
+purple-3: #8423DE;
+pink-1: #B721FF;
+gray-1: #333;
+black-1: #151515;
