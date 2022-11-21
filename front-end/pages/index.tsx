@@ -40,7 +40,7 @@ export default function Home(props: HomeProps) {
         <h2 className="movies-section-title">Lançamentos</h2>
         <div className="movies-list">
           <div className="movie-list-item">
-            <img className="movie-list-item-img" src="https://cdnim.prd.cineticket.com.br/asset/movie/7883/et-o-extraterrestre-poster-desktop-4766c.jpg" alt="Capa do filme" />
+            <img className="movie-list-item-img" src="https://m.media-amazon.com/images/I/71ydFW-qgQL.jpg" alt="Capa do filme" />
             <span className="movie-list-item-title">Em busca da felicidade!</span>
             <p className="movie-list-item-desc">00/00/0000</p>
             <button className="movie-list-item-button">Comprar ingresso</button>
@@ -48,13 +48,40 @@ export default function Home(props: HomeProps) {
         </div>
       </main>
       <section className="news-container">
+      <hr className="hr-color-cinemagic"></hr>
         <h2 className="movies-section-title">Novidades</h2>
         <div className="news-list">
-          <div className="news-banner">
-            <img src="" alt="" />
+          <div className="news-list-item">
+            <div className="news-banner">
+              <img src="https://cdnim.prd.cineticket.com.br/home/carousel/9492caf55ef8471ca2e6ec8b77435def.jpg" alt="" />
+            </div>
+            <div className="news-title">
+              <p>Chicken Popcorn, Experimente!</p>
+            </div>
           </div>
-          <div className="news-title">
-            <p>Confira as novidades do nosso cinema!</p>
+          <div className="news-list-item">
+            <div className="news-banner">
+              <img src="https://cdnim.prd.cineticket.com.br/home/carousel/62a09bca1b9a469082d86e0c800fa2ca.jpg" alt="" />
+            </div>
+            <div className="news-title">
+              <p>Garanta seu pão de queijo!</p>
+            </div>
+          </div>
+          <div className="news-list-item">
+            <div className="news-banner">
+              <img src="https://www.cinemark.com.br/Content/assets/images/bg-auditorium-prime-hover.jpg" alt="" />
+            </div>
+            <div className="news-title">
+              <p>Salas Bradesco Prime!</p>
+            </div>
+          </div>
+          <div className="news-list-item">
+            <div className="news-banner">
+              <img src="https://cdnim.prd.cineticket.com.br/home/carousel/127d87cf38e04b8cb001b0604d36d76e.jpg" alt="" />
+            </div>
+            <div className="news-title">
+              <p>Confira as novidades do nosso cinema!</p>
+            </div>
           </div>
         </div>
       </section>
