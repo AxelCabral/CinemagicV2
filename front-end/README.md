@@ -28,13 +28,3 @@ comando: yarn add axios
 
 - Comando para rodar o front-end
 yarn dev
-
-## Não obrigatório e recomendado (config)
-
-No arquivo settings.json (VSCode) - Para formatação automática ao salvar e autocomplete das funções do Prisma
-
-"[prisma]": {
-    "editor.defaultFormatter": "Prisma.prisma",
-    "editor.formatOnSave": true
-}
-
