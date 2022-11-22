@@ -36,5 +36,9 @@ comando: yarn add @fortawesome/free-brands-svg-icons
 - Instalação do Moment para conversão de datas
 comando: yarn add moment --save
 
+- Instalação Data Table React
+comando: yarn add react-data-table-component
+comando: yarn add styled-components
+
 - Comando para rodar o front-end
 yarn dev
