@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFacebook, faTwitter, faInstagram, faYoutube, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 
 interface HomeProps {
-  movie: { id: string, title: string, releaseDate: Date, lengthInMinutes: number, coverUrl: string, }
+  movie: { id: string, title: string, releaseDate: string, lengthInMinutes: number, coverUrl: string, }
 }
 
 export const getServerSideProps = async () => {
@@ -41,6 +41,16 @@ export default function Home(props: HomeProps) {
       <main className="released-movies-container">
         <h2 className="movies-section-title">Lançamentos</h2>
         <div className="movies-list">
+          {
+            /*props.movie.map(movie => (
+              <div key={movie.id} className="movie-list-item">
+                <img className="movie-list-item-img" src={movie.coverUrl} alt="Capa do filme" />
+                <span className="movie-list-item-title">{movie.title}</span>
+                <p className="movie-list-item-desc">{movie.releaseDate}</p>
+                <button className="movie-list-item-button">Comprar ingresso</button>
+              </div>
+            ))*/
+          }
           <div className="movie-list-item">
             <img className="movie-list-item-img" src="https://m.media-amazon.com/images/I/71ydFW-qgQL.jpg" alt="Capa do filme" />
             <span className="movie-list-item-title">Em busca da felicidade!</span>
@@ -50,7 +60,7 @@ export default function Home(props: HomeProps) {
         </div>
       </main>
       <section className="news-container">
-      <hr className="hr-color-cinemagic"/>
+        <hr className="hr-color-cinemagic" />
         <h2 className="movies-section-title">Novidades</h2>
         <div className="news-list">
           <div className="news-list-item">
