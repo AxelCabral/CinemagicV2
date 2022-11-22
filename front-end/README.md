@@ -5,6 +5,7 @@
 - ReactJS
 - Axios
 - Typescript
+- FontAwesome Icons
 
 ## Para execução ou edição como desenvolverdor (instalação das dependências)
 
@@ -25,6 +26,11 @@ comando: yarn add @types/react @types/react-dom @types/node
 
 - Instalação Axios
 comando: yarn add axios
+
+- Instalação FontAwesome
+comando: yarn add @fortawesome/fontawesome-svg-core
+comando: yarn add @fortawesome/react-fontawesome
+comando: yarn add @fortawesome/free-brands-svg-icons
 
 - Comando para rodar o front-end
 yarn dev

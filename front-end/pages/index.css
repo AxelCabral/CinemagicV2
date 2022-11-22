@@ -416,3 +416,68 @@ ul.links-information li:hover{
 .logo-footer {
   margin-right: 4em;
 }
+
+span.icon:hover {
+  color: #21d4fd;
+}
+
+span.icon{
+  font-size: 25px;
+  line-height: 30px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+ul.social-links-information li{
+  font-size: 12px;
+  letter-spacing: 1.2px;
+  line-height: 1.25;
+  width: 65%;
+}
+
+ul.social-links-information li:hover{
+  background: linear-gradient(to right, #21d4fd, #a468f8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+ul.social-links-information li:hover .fa-facebook{
+  color: #21d4fd;
+}
+
+ul.social-links-information li:hover .fa-twitter{
+  color: #009dff;
+}
+
+ul.social-links-information li:hover .fa-instagram{
+  color: #5041f4;
+}
+
+ul.social-links-information li:hover .fa-youtube{
+  color: #9634ec;
+}
+
+ul.social-links-information li:hover .fa-linkedin{
+  color: #a468f8;
+}
+
+
+ul.social-links-information{
+    padding-left: 0;
+    list-style: none;
+    margin: 0;
+    margin-left: 0;
+    font-size: 0;
+    margin-bottom: 20px;
+    text-align: center;
+    padding-top: 30px;
+}
+
+span.title {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.social-media-container {
+  display: inline-flex;
+}

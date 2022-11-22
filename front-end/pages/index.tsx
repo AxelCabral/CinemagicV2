@@ -1,4 +1,6 @@
 import { movieApi, userApi } from '../lib/axios';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faFacebook, faTwitter, faInstagram, faYoutube, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 
 interface HomeProps {
   movie: { id: string, title: string, releaseDate: Date, lengthInMinutes: number, coverUrl: string, }
@@ -90,8 +92,20 @@ export default function Home(props: HomeProps) {
       </section>
       <footer>
         <div className="social-media-container">
-          <ul className='links-information'>
-            <li><a href=""><span className='icon icon-facebook'></span></a></li>
+          <ul className='social-links-information'>
+            <li><a href=""><span className='icon fa-facebook'><FontAwesomeIcon icon={faFacebook} /></span><span className="title">Facebook <strong>/cinemagicoficial</strong></span></a></li>
+          </ul>
+          <ul className='social-links-information'>
+            <li><a href=""><span className='icon fa-twitter'><FontAwesomeIcon icon={faTwitter} /></span><span className="title">Twitter <strong>/cinemagicoficial</strong></span></a></li>
+          </ul>
+          <ul className='social-links-information'>
+            <li><a href=""><span className='icon fa-instagram'><FontAwesomeIcon icon={faInstagram} /></span><span className="title">Instagram <strong>/cinemagicoficial</strong></span></a></li>
+          </ul>
+          <ul className='social-links-information'>
+            <li><a href=""><span className='icon fa-youtube'><FontAwesomeIcon icon={faYoutube} /></span><span className="title">Youtube <strong>/cinemagicoficial</strong></span></a></li>
+          </ul>
+          <ul className='social-links-information'>
+            <li><a href=""><span className='icon fa-linkedin'><FontAwesomeIcon icon={faLinkedin} /></span><span className="title">Linkedin <strong>/cinemagicoficial</strong></span></a></li>
           </ul>
         </div>
         <hr className="hr-color-cinemagic" />
