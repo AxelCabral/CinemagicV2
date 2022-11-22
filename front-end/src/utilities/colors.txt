@@ -5,3 +5,4 @@ purple-3: #8423DE;
 pink-1: #B721FF;
 gray-1: #333;
 black-1: #151515;
+black-2: #000;
