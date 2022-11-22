@@ -39,7 +39,8 @@ export default function Home(props: HomeProps) {
                             <div key={movie.id} className="movie-list-item">
                                 <img className="movie-list-item-img" src={movie.coverUrl} alt="Capa do filme" />
                                 <span className="movie-list-item-title">{movie.title}</span>
-                                <p className="movie-list-item-desc">{moment(movie.releaseDate).add(1, 'd').format('DD/MM/YYYY')}</p>
+                                <p className="movie-list-item-desc">
+                                    Lançamento: <br />{moment(movie.releaseDate).add(1, 'd').format('DD/MM/YYYY')}</p>
                                 <button className="movie-list-item-button">Comprar ingresso</button>
                             </div>
                         ))

@@ -44,8 +44,9 @@ a{
 
 .movies-list{
   width: 80%;
-  margin-left: 10%;
   display: flex;
+  flex-wrap: wrap;
+  margin: auto;
 }
 
 .movies-section-title {
@@ -199,10 +200,10 @@ a{
 }
 
 .movie-list-item {
-  margin-right: 30px;
   position: relative;
   width: 180px;
   height: 265px;
+  padding: 10px;
 }
 
 .movie-list-item-img {
@@ -250,7 +251,7 @@ a{
   font-size: 14px;
   position: absolute;
   top: 40%;
-  left: 40px;
+  left: 25%;
   width: 230px;
   opacity: 0;
   transition: 0.4s all ease-in-out;
@@ -268,7 +269,8 @@ a{
   position: absolute;
   bottom: 20px;
   opacity: 0;
-  left: 27.5px;
+  left: 20%;
+  bottom: 20%;
   text-align: center;
   transition: 0.4s all ease-in-out;
 }

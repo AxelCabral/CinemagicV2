@@ -3,7 +3,7 @@ export default function Navbar() {
         <section className="navbar">
             <div className="navbar-container">
                 <div className="logo-container">
-                    <h1 className="logo">CineMagic</h1>
+                    <h1 className="logo">CINEMAGIC</h1>
                 </div>
                 <div className="menu-container">
                     <ul className="menu-list">
