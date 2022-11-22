@@ -48,7 +48,7 @@ export default function Home(props: HomeProps) {
         </div>
       </main>
       <section className="news-container">
-      <hr className="hr-color-cinemagic"></hr>
+      <hr className="hr-color-cinemagic"/>
         <h2 className="movies-section-title">Novidades</h2>
         <div className="news-list">
           <div className="news-list-item">
@@ -86,19 +86,24 @@ export default function Home(props: HomeProps) {
         </div>
       </section>
       <section className="email-form-container">
-        <p className="email-form-title">Receba nossa programação por email</p>
-        <button className="email-form-button-text">Cadastre-se</button>
+        <div className="email-form-shadowbox"><p className="email-form-title">Receba nossa programação por email <a href="#"><button className="email-form-button-text">Cadastre-se</button></a></p></div>
       </section>
       <footer>
-        <div className="social-media-container"></div>
-        <hr />
+        <div className="social-media-container">
+          <ul className='links-information'>
+            <li><a href=""><span className='icon icon-facebook'></span></a></li>
+          </ul>
+        </div>
+        <hr className="hr-color-cinemagic" />
         <div className="more-information">
-          <div className="logo-container">
-            <span className="logo">CineMagic</span>
+          <div className="logo-container logo-footer">
+            <a href="#"><span className="logo">CineMagic</span></a>
           </div>
           <p>Copyright © 2022 Cinemagic</p>
-          <a href="#">Política de privacidade</a>
-          <a href="#">Termos de Uso</a>
+          <ul className='links-information'>
+            <li><a href="#">Política de privacidade</a></li>
+            <li><a href="#">Termos de Uso</a></li>
+          </ul>
         </div>
       </footer>
     </div>
