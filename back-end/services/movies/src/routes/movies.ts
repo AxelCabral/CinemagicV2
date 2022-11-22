@@ -10,6 +10,17 @@ export async function movieRoutes(fastify: FastifyInstance) {
         return { movie }
     });
 
+    fastify.get('/movies/released', async () => {
+        const movie = await prisma.movie.findMany({
+            take: 12,
+            orderBy: {
+                releaseDate: 'desc',
+            }
+        })
+
+        return { movie }
+    });
+
     fastify.post('/movie/new', async (request, reply) => {
 
         const createMovieBody = z.object({

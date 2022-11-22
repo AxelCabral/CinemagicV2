@@ -6,6 +6,7 @@
 - Axios
 - Typescript
 - FontAwesome Icons
+- Moment
 
 ## Para execução ou edição como desenvolverdor (instalação das dependências)
 
@@ -31,6 +32,9 @@ comando: yarn add axios
 comando: yarn add @fortawesome/fontawesome-svg-core
 comando: yarn add @fortawesome/react-fontawesome
 comando: yarn add @fortawesome/free-brands-svg-icons
+
+- Instalação do Moment para conversão de datas
+comando: yarn add moment --save
 
 - Comando para rodar o front-end
 yarn dev

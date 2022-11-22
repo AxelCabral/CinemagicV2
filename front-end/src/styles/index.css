@@ -66,6 +66,10 @@ a{
   background-position: bottom;
 }
 
+.logo-container h1{
+  font-weight: 400;
+}
+
 .logo{
   font-size: 30px;
   background: -webkit-linear-gradient(to right, #21d4fd, 35%, #b721ff);
@@ -89,7 +93,7 @@ a{
   margin-right: 30px;
   align-items: center;
   font-size: 20px;
-  margin-top: 10px;
+  margin-top: 15px;
 }
 
 .menu-list-item:hover{
@@ -109,9 +113,9 @@ a{
 }
 
 .profile-picture {
-  width: 40px;
-  height: 40px;
-  background-image: url('./assets/userImg.png');
+  width: 34px;
+  height: 34px;
+  background-image: url('../assets/userImg.png');
   background-size: contain;
 }
 
@@ -224,7 +228,7 @@ a{
 .movie-list-item-title {
   background-color: transparent;
   padding-top: 10px;
-  font-size: 25px;
+  font-size: 18px;
   font-weight: bold;
   position: absolute;
   opacity: 0;
@@ -237,6 +241,7 @@ a{
   text-align: center;
   font-weight: 300;
   color: white;
+  text-transform: uppercase;
 }
 
 .movie-list-item-desc {
@@ -433,6 +438,8 @@ ul.social-links-information li{
   letter-spacing: 1.2px;
   line-height: 1.25;
   width: 65%;
+  margin: auto;
+  padding: 30px;
 }
 
 ul.social-links-information li:hover{
@@ -471,13 +478,10 @@ ul.social-links-information{
     margin-bottom: 20px;
     text-align: center;
     padding-top: 30px;
+    display: inline-flex;
 }
 
 span.title {
-  display: inline-block;
+  display: grid;
   vertical-align: middle;
-}
-
-.social-media-container {
-  display: inline-flex;
 }
