@@ -33,7 +33,7 @@ export async function userRoutes(fastify: FastifyInstance) {
         })
     })
 
-    fastify.delete('/users/:id/delete', async (request, reply) => {
+    fastify.delete('/users/id/delete', async (request, reply) => {
         const id = String(request.headers.id);
 
         const user = await prisma.user.findUnique({

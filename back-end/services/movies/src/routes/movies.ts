@@ -1,6 +1,7 @@
 import { FastifyInstance } from 'fastify';
 import { prisma } from '../lib/prisma'
 import { z } from 'zod'
+import { dateValidationFunction } from '../lib/date-validation-function';
 
 export async function movieRoutes(fastify: FastifyInstance) {
     fastify.get('/movies', async () => {
@@ -32,10 +33,12 @@ export async function movieRoutes(fastify: FastifyInstance) {
 
         const { title, releaseDate, lengthInMinutes, coverUrl } = createMovieBody.parse(request.body)
 
+        const releaseDateNew = dateValidationFunction(releaseDate)
+
         await prisma.movie.create({
             data: {
                 title,
-                releaseDate,
+                releaseDate: releaseDateNew,
                 lengthInMinutes,
                 coverUrl
             }

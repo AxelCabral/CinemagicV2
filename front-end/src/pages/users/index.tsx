@@ -18,6 +18,13 @@ export const getServerSideProps = async () => {
   }
 }
 
+export const sendDeleteHeader = async (userID: string) => {
+    const headerSent = await userApi.post("users/id/delete", {
+    headers: {
+      'id': userID
+    }
+  });
+}
 export default function Index(props: userProps) {
   return (
     <div className="main-container">
@@ -30,12 +37,14 @@ export default function Index(props: userProps) {
               <th>Nome</th>
               <th>Email</th>
               <th> </th>
+              <th> </th>
             </tr>
             {
               props.user.map((user) => (
                 <tr key={user.id}>
                   <td>{user.name}</td>
                   <td>{user.email}</td>
+                  <td><button className="user-form-button-text" onClick={() => sendDeleteHeader(user.id)}>Deletar</button></td>
                 </tr>
               ))
             }

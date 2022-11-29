@@ -17,7 +17,7 @@ interface HomeProps {
 
 export const getServerSideProps = async () => {
 
-    const response = await movieApi.get("/movies")
+    const response = await movieApi.get("/movies/released")
     return {
         props: {
             movie: response.data.movie,
