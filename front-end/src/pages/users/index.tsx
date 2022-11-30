@@ -2,6 +2,7 @@ import { Key, ReactElement, JSXElementConstructor, ReactFragment, ReactPortal } 
 import { userApi } from '../../lib/axios';
 import Footer from '../components/footer';
 import Navbar from '../components/navBar';
+import Link from 'next/link';
 
 interface userProps {
   user: {
@@ -18,6 +19,16 @@ export const getServerSideProps = async () => {
   }
 }
 
+export const sendDeleteHeader = async (userID: string) => {
+  const headerSent = await userApi.delete("users/id/delete", {
+    headers: {
+      'id': userID
+    }
+  });
+  window.location.reload();
+}
+
+
 export default function Index(props: userProps) {
   return (
     <div className="main-container">
@@ -30,12 +41,24 @@ export default function Index(props: userProps) {
               <th>Nome</th>
               <th>Email</th>
               <th> </th>
+              <th> </th>
             </tr>
             {
               props.user.map((user) => (
                 <tr key={user.id}>
                   <td>{user.name}</td>
                   <td>{user.email}</td>
+                  <td><button className="user-form-button-text" onClick={() => sendDeleteHeader(user.id)}>Deletar</button></td>
+                  <td>
+                    <Link
+                      href={{
+                        pathname: '/users/update',
+                        query: { id: user.id },
+                      }}
+                    >
+                      <button className="user-form-button-text">Update</button>
+                    </Link>
+                  </td>
                 </tr>
               ))
             }

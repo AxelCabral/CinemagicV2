@@ -42,7 +42,7 @@ export async function userRoutes(fastify: FastifyInstance) {
             },
         })
 
-        if(!user){
+        if (!user) {
             return reply.status(404).send({
                 message: 'O usuário não foi encontrado.'
             })
@@ -67,7 +67,7 @@ export async function userRoutes(fastify: FastifyInstance) {
 
         const id = String(request.headers.id);
 
-        const { name, email, password  } = createUserBody.parse(request.body)
+        const { name, email, password } = createUserBody.parse(request.body)
 
         const user = await prisma.user.findUnique({
             where: {
@@ -96,4 +96,17 @@ export async function userRoutes(fastify: FastifyInstance) {
             message: 'Atualizado com sucesso!'
         })
     })
+
+    fastify.get('/users/update', async(request) => {
+            const id = String(request.headers.id);
+
+            const user = await prisma.user.findUnique({
+                where: {
+                    id,
+                },
+            })
+
+            return { user }
+        })
+
 }

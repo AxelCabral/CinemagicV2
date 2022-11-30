@@ -16,11 +16,10 @@ datasource db {
 
 model Movie {
   id              String   @id @default(uuid())
-  title           String   @unique
-  releaseDate     DateTime
+  title           String
+  releaseDate     DateTime 
   lengthInMinutes Int
   coverUrl        String
-  sinopse         String
 
   moviegenderR MovieGenderR[]
 }
