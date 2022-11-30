@@ -1,0 +1,64 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+generator erd {
+  provider = "prisma-erd-generator"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Cinema {
+  id       String @id @default(cuid())
+  name     String @unique
+  endereco String
+  cidade   String
+  Estado   String
+  IdSecao  String
+
+  secaos Secao[]
+}
+
+model Filme {
+  id       String @id @default(cuid())
+  titulo   String @unique
+  duracao  Int
+  sinopse  String
+  generoID String
+  idiomaID String
+
+  generos Genero  @relation(fields: [generoID], references: [id])
+  idiomas Idioma  @relation(fields: [idiomaID], references: [id])
+  Secao   Secao[]
+}
+
+model Genero {
+  id     String @id @default(cuid())
+  genero String
+
+  filmes Filme[]
+}
+
+model Idioma {
+  id     String @id @default(cuid())
+  idioma String @unique
+
+  filmes Filme[]
+}
+
+model Secao {
+  id          String   @id @default(cuid())
+  estreia     DateTime
+  enceramento DateTime
+  cinemaId    String
+  filmeId     String
+
+  filme   Filme  @relation(fields: [filmeId], references: [id])
+  cinemas Cinema @relation(fields: [cinemaId], references: [id])
+}
