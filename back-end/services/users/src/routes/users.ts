@@ -59,6 +59,9 @@ export async function userRoutes(fastify: FastifyInstance) {
     })
 
     fastify.post('/users/:id/update', async (request, reply) => {
+
+        console.log(request.server);
+
         const createUserBody = z.object({
             name: z.string(),
             email: z.string(),
@@ -97,16 +100,16 @@ export async function userRoutes(fastify: FastifyInstance) {
         })
     })
 
-    fastify.get('/users/update', async(request) => {
-            const id = String(request.headers.id);
+    fastify.get('/users/update', async (request) => {
+        const id = String(request.headers.id);
 
-            const user = await prisma.user.findUnique({
-                where: {
-                    id,
-                },
-            })
-
-            return { user }
+        const user = await prisma.user.findUnique({
+            where: {
+                id,
+            },
         })
+
+        return { user }
+    })
 
 }

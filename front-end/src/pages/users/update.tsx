@@ -2,17 +2,21 @@ import { userApi } from '../../lib/axios';
 import Footer from '../components/footer';
 import Navbar from '../components/navBar';
 import { FormEvent, useState } from 'react';
-import { useRouter } from 'next/router';
+
 
 interface userProps {
     user: {
         map: any; id: string, email: string, name: string, password: string
     }
 }
-export const getServerSideProps = async () => {
+
+
+export const getServerSideProps = async (context: any) => {
+    const { id } = context.query;
+
     const response = await userApi.get("users/update", {
         headers: {
-            id: '3d116b41-c8ef-4d3d-ab22-d4ba2eca4d44',
+            id: id,
         }
     });
     return {
@@ -34,7 +38,7 @@ export default function Index(props: userProps) {
                 email: email,
                 password: password,
             });
-            
+
             setName('');
             setEmail('');
             setPassword('');
