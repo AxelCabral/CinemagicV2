@@ -4,7 +4,7 @@ import Footer from '../components/footer';
 import Navbar from '../components/navBar';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowLeft, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faArrowLeft, faPlus, faTrash, faPen } from '@fortawesome/free-solid-svg-icons';
 
 interface userProps {
   user: {
@@ -46,7 +46,7 @@ export default function Index(props: userProps) {
             <h2 className="movies-section-title">Usuários</h2>
           </div>
           <div className="button-table-style plus">
-            <a href="#" title="Novo usuário" target="_self" rel="next">
+            <a href="users/register" title="Novo usuário" target="_self" rel="next">
               <span className='icon fa-plus'><FontAwesomeIcon icon={faPlus} /></span>
             </a>
           </div>
@@ -59,23 +59,22 @@ export default function Index(props: userProps) {
                   <tr>
                     <th>Nome</th>
                     <th>Email</th>
-                    <th> </th>
-                    <th> </th>
+                    <th>Opções</th>
                   </tr>
                   {
                     props.user.map((user) => (
                       <tr key={user.id}>
                         <td>{user.name}</td>
                         <td>{user.email}</td>
-                        <td><button className="user-form-button-text" onClick={() => sendDeleteHeader(user.id)}>Deletar</button></td>
-                        <td>
+                        <td><span onClick={() => sendDeleteHeader(user.id)} className='icon fa-trash'><FontAwesomeIcon icon={faTrash} /></span>
+                          │
                           <Link
                             href={{
                               pathname: '/users/update',
                               query: { id: user.id },
                             }}
                           >
-                            <button className="user-form-button-text">Update</button>
+                            <span className='icon fa-pen'><FontAwesomeIcon icon={faPen} /></span>
                           </Link>
                         </td>
                       </tr>
@@ -87,14 +86,6 @@ export default function Index(props: userProps) {
           </div>
         </div>
       </main >
-      <section className="user-form-container">
-        <div className="user-form-shadowbox">
-          <p className="user-form-title">Cadastre um novo usuário <a href="users/register">
-            <button className="user-form-button-text">Cadastrar</button>
-          </a>
-          </p>
-        </div>
-      </section>
       <Footer></Footer>
     </div >
   )
