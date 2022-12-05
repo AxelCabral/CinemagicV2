@@ -1,0 +1,26 @@
+img.movie-info-img {
+    max-height: 25em;
+    max-width: 13em;
+    min-width: 17em;
+}
+
+.info-movie-container {
+    padding: 10px;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.movie-info {
+    background-color: #262525;
+    padding: inherit;
+    color: silver;
+    margin: inherit;
+    width: fit-content;
+}
+
+
+.movie-info-main {
+    margin: 0em 2em 0em 2em;
+    padding: inherit;
+    display: -webkit-box;
+}
