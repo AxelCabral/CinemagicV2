@@ -4,6 +4,7 @@ import { z } from 'zod'
 import { dateValidationFunction } from '../lib/date-validation-function';
 
 export async function movieRoutes(fastify: FastifyInstance) {
+
     fastify.get('/movies', async () => {
 
         const movie = await prisma.movie.findMany()
@@ -205,5 +206,17 @@ export async function movieRoutes(fastify: FastifyInstance) {
         return reply.status(200).send({
             message: 'Atualizado com sucesso!'
         })
+    })
+
+    fastify.get('/movie/info', async(request) => {
+        const id = String(request.headers.id);
+
+        const movie = await prisma.movie.findUnique({
+            where: {
+                id,
+            },
+        })
+
+        return { movie }
     })
 }
