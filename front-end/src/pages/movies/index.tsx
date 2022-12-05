@@ -37,6 +37,7 @@ export default function Index(props: MovieProps) {
               <Link
                 href={{
                   pathname: '/movies/info/',
+                  query: {id: movie.id},
                 }}
               >
                 <div key={movie.id} className="movie-list-item">

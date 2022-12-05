@@ -216,7 +216,11 @@ export async function movieRoutes(fastify: FastifyInstance) {
                 id,
             },
         })
+        const movieFull = await prisma.movieGenderR.findMany({
+            where: { movieId: id },
+            include: {gender: true},
+          });
 
-        return { movie }
+        return { movie, movieFull }
     })
 }
