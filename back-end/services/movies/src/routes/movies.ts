@@ -30,9 +30,14 @@ export async function movieRoutes(fastify: FastifyInstance) {
             releaseDate: z.string(),
             lengthInMinutes: z.number(),
             coverUrl: z.string(),
+            synopsis: z.string(),
+            parentalRatingType: z.string(),
+            dubbedVersion: z.boolean(),
+            subtitledVersion: z.boolean(),
+            originalLanguage: z.string()
         })
 
-        const { title, releaseDate, lengthInMinutes, coverUrl } = createMovieBody.parse(request.body)
+        const { title, releaseDate, lengthInMinutes, coverUrl, synopsis, parentalRatingType, dubbedVersion, subtitledVersion, originalLanguage } = createMovieBody.parse(request.body)
 
         const releaseDateNew = dateValidationFunction(releaseDate)
 
@@ -41,7 +46,12 @@ export async function movieRoutes(fastify: FastifyInstance) {
                 title,
                 releaseDate: releaseDateNew,
                 lengthInMinutes,
-                coverUrl
+                coverUrl,
+                synopsis,
+                parentalRatingType,
+                dubbedVersion,
+                subtitledVersion,
+                originalLanguage
             }
         })
 
@@ -151,11 +161,16 @@ export async function movieRoutes(fastify: FastifyInstance) {
             releaseDate: z.string(),
             lengthInMinutes: z.number(),
             coverUrl: z.string(),
+            synopsis: z.string(),
+            parentalRatingType: z.string(),
+            dubbedVersion: z.boolean(),
+            subtitledVersion: z.boolean(),
+            originalLanguage: z.string()
         })
 
         const id = String(request.headers.id);
 
-        const { title, releaseDate, lengthInMinutes, coverUrl } = createMovieBody.parse(request.body)
+        const { title, releaseDate, lengthInMinutes, coverUrl, synopsis, parentalRatingType, dubbedVersion, subtitledVersion, originalLanguage } = createMovieBody.parse(request.body)
 
         const movie = await prisma.movie.findMany({
             where: {
@@ -169,15 +184,22 @@ export async function movieRoutes(fastify: FastifyInstance) {
             })
         }
 
+        const releaseDateNew = dateValidationFunction(releaseDate)
+
         await prisma.movie.update({
             where: {
                 id
             },
             data: {
                 title,
-                releaseDate,
+                releaseDate: releaseDateNew,
                 lengthInMinutes,
-                coverUrl
+                coverUrl,
+                synopsis,
+                parentalRatingType,
+                dubbedVersion,
+                subtitledVersion,
+                originalLanguage
             }
         })
 
