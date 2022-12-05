@@ -45,7 +45,7 @@ export default function Index(props: userProps) {
           <div className='main-text-title'>
             <h2 className="movies-section-title">Usuários</h2>
           </div>
-          <div className="button-table-style">
+          <div className="button-table-style plus">
             <a href="#" title="Novo usuário" target="_self" rel="next">
               <span className='icon fa-plus'><FontAwesomeIcon icon={faPlus} /></span>
             </a>
@@ -86,7 +86,7 @@ export default function Index(props: userProps) {
             </div>
           </div>
         </div>
-      </main>
+      </main >
       <section className="user-form-container">
         <div className="user-form-shadowbox">
           <p className="user-form-title">Cadastre um novo usuário <a href="users/register">
@@ -96,6 +96,6 @@ export default function Index(props: userProps) {
         </div>
       </section>
       <Footer></Footer>
-    </div>
+    </div >
   )
 }

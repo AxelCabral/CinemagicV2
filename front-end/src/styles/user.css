@@ -240,6 +240,10 @@ section.user-form-container {
     align-items: center;
 }
 
+.button-table-style.plus{
+    margin-top: -6em;
+}
+
 .button-table-style a{
     margin: auto;
 }
@@ -254,7 +258,7 @@ section.user-form-container {
 .data-table-title {
     color: #fff;
     font-size: 12px;
-    padding: 18px;
+    padding: 10px;
     margin-left: auto;
     width: 40rem;
     margin-right: auto;
