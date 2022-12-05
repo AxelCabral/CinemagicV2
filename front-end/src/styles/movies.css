@@ -66,6 +66,16 @@ img.movie-info-img {
     margin-bottom: 0.7em;
     height: 3em;
     margin-left: 1rem;
+    border-radius: 10px;
+}
+
+.movie-info-desc.gender {
+    background-color: #151515;
+    width: 7rem;
+    margin-bottom: 0.7em;
+    height: 3em;
+    margin-left: 1rem;
+    border-radius: 10px;
 }
 
 .movie-genders-container {
@@ -86,6 +96,12 @@ img.movie-info-img {
 .movie-info-desc.genderInfo h3 {
     margin-top: 0.6em;
 }
+
+.movie-info-desc.gender h3 {
+    margin-top: 0.3em;
+    font-size: 25px;
+}
+
 
 .movie-info-desc.synopsis {
     padding: 1em 8em;

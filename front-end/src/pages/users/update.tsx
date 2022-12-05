@@ -33,18 +33,28 @@ export default function Index(props: userProps) {
     async function registerUser(event: FormEvent) {
         event.preventDefault();
         try {
-            const response = await userApi.post('users/new', {
+            var postData = {
                 name: name,
                 email: email,
                 password: password,
-            });
+              };
+              
+            let axiosConfig = {
+                headers: {
+                    id: props.user.id,
+                    'Content-Type': 'application/json;charset=UTF-8', 
+                    "Access-Control-Allow-Origin": "*", 
+                    "Accept": "application/json"
+                }
+            };
+            const response = await userApi.post('users/id/update', postData, axiosConfig);
 
             setName('');
             setEmail('');
             setPassword('');
         } catch (error) {
             console.log(error);
-            alert('Falha ao criar o usuário, tente novamente!');
+            alert('Falha ao atualizar o usuário, tente novamente!');
         }
     }
     return (

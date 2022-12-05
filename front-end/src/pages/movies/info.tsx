@@ -97,8 +97,8 @@ export default function Index(props: MovieProps) {
                     </div>
                 }
                 <div className='movie-genders-container'>
-                    <div className='movie-info-desc genderInfo'>
-                        <h3>Gênero</h3>
+                    <div className='movie-info-desc gender'>
+                        <h3>Gêneros</h3>
                     </div>
                     {
                         props.movieFull.map((movieFull: any) => (
