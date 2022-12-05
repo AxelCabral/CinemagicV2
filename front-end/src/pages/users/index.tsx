@@ -5,6 +5,8 @@ import Navbar from '../components/navBar';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faPlus, faTrash, faPen } from '@fortawesome/free-solid-svg-icons';
+import { setRevalidateHeaders } from 'next/dist/server/send-payload';
+import { request } from 'https';
 
 interface userProps {
   user: {
@@ -29,7 +31,6 @@ export const sendDeleteHeader = async (userID: string) => {
   });
   window.location.reload();
 }
-
 
 export default function Index(props: userProps) {
   return (
@@ -62,7 +63,7 @@ export default function Index(props: userProps) {
                     <th>Opções</th>
                   </tr>
                   {
-                    props.user.map((user) => (
+                    props.user.map((user: { id: Key | null | undefined; name: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal | null | undefined; email: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal | null | undefined; }) => (
                       <tr key={user.id}>
                         <td>{user.name}</td>
                         <td>{user.email}</td>
