@@ -223,4 +223,33 @@ export async function movieRoutes(fastify: FastifyInstance) {
 
         return { movie, movieFull }
     })
+
+    fastify.get('/movie/registerTwo', async(request) => {
+        const title = String(request.headers.title);
+
+        const movie = await prisma.movie.findUnique({
+            where: {
+                title,
+            },
+        })
+        const idMovie = movie?.id;
+        const gendersMov = await prisma.movieGenderR.findMany({
+            where: {
+                movieId: idMovie,
+            }
+        })
+
+        const genders: string[] = [];
+        gendersMov.map((gender) =>{
+            genders.push(gender.genderId);
+        })
+
+        const gender = await prisma.gender.findMany({
+            where:{
+                    id: {notIn: genders}
+            }
+        });
+
+        return { movie, gender}
+    })
 }

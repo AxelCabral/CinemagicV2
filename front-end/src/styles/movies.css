@@ -125,3 +125,142 @@ img.movie-info-img {
     margin-top: 0.5em;
 }
 
+.textarea {
+    max-width: 23rem;
+    min-width: 23rem;
+    max-height: 5rem;
+    min-height: 5rem;
+    resize: none;
+}
+
+select.input-register-form {
+    background-color: #333;
+}
+
+select {
+
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    
+    background-color: transparent;
+    border: none;
+    padding: 0 1em 0 0;
+    margin: 0;
+    width: 100%;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: inherit;
+    line-height: inherit;
+  
+    z-index: 1;
+  
+    outline: none;
+  }
+
+.centered-movie-grid-form {
+    display: flex;
+    justify-content: center;
+  }
+
+  div.movie-grid-form {
+    margin-right: 1rem;
+    background-color: none;
+    box-shadow: none;
+    padding: 1rem 2rem 1rem 2rem;
+  }
+
+  span.movie-grid {
+    background-color: #333;
+    padding: 0.5rem;
+    border-radius: 13px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  div.container-register.movie-grid-form {
+    background-color: #333;
+    border-radius: 23px;
+    width: min-content;
+    margin: auto;
+  }
+  
+  div.container-register.gender-grid-form {
+    background-color: #333;
+    border-radius: 23px;
+    width: min-content;
+    margin: auto;
+    min-height: 12rem;
+    max-height: 12rem;
+  }
+
+  button.movie-btn {
+    width: 30%;
+  }
+
+  .dropdown-container {
+    width: 10rem;
+    padding: inherit;
+    margin-left: 26rem;
+}
+  
+  .dropdown-input {
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    user-select: none;
+  }
+  
+  .dropdown-menu {
+    transform: translateY(4px);
+    width: 100%;
+    border: 1px solid #292828;
+    border-radius: 5px;
+    overflow: auto;
+    max-height: 150px;
+    background-color: #161515;
+    z-index: 99;
+  }
+  
+  .dropdown-item {
+    padding: 5px;
+    cursor: pointer;
+  }
+  
+  .dropdown-item:hover {
+    background: /* gradient can be an image */ 
+    linear-gradient( to left, #4623DE, 35%, #7733F5, #8423DE,#b721ff ) left bottom #000 no-repeat;
+  }
+
+  .movie-gender-dropdown{
+    background-color: #151515;
+    width: 7rem;
+    margin-left: 1rem;
+    border-radius: 10px;
+    margin: inherit;
+    padding: inherit;
+}
+
+.dropdown-g {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+
+.movies-list.admin-list-movie {
+    background-color: #000;
+    margin: auto;
+    width: max-content;
+    padding: inherit;
+    padding-bottom: 2rem;
+}
+
+.icon-movies {
+    background-color: #333;
+    border-radius: 5px;
+}
+
+
+  

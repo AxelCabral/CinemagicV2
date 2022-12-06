@@ -16,7 +16,7 @@ datasource db {
 
 model Movie {
   id                 String   @id @default(uuid())
-  title              String
+  title              String   @unique
   releaseDate        DateTime
   lengthInMinutes    Int
   coverUrl           String

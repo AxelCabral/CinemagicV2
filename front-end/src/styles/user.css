@@ -63,7 +63,6 @@ section.user-form-container {
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    background-color: #111;
     font-family: 'Roboto' sans-serif;
 }
 
@@ -169,6 +168,15 @@ section.user-form-container {
 .input-register-form:focus + .input-effect::before{
     width: 100%;
 }
+
+.input-register-form[value=""]::-webkit-datetime-edit{ 
+    color: transparent;
+ }
+ .input-register-form:focus::-webkit-datetime-edit{ 
+    color: white;
+}
+
+
 
 .container-register-form-btn{
     display: flex;
