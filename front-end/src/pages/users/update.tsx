@@ -37,13 +37,13 @@ export default function Index(props: userProps) {
                 name: name,
                 email: email,
                 password: password,
-              };
-              
+            };
+
             let axiosConfig = {
                 headers: {
                     id: props.user.id,
-                    'Content-Type': 'application/json;charset=UTF-8', 
-                    "Access-Control-Allow-Origin": "*", 
+                    'Content-Type': 'application/json;charset=UTF-8',
+                    "Access-Control-Allow-Origin": "*",
                     "Accept": "application/json"
                 }
             };
@@ -90,7 +90,7 @@ export default function Index(props: userProps) {
                                 <span className="input-effect" data-placeholder='Senha'></span>
                             </div>
                             <div className="container-register-form-btn">
-                                <button className="register-form-btn">Fazer registro</button>
+                                <button className="register-form-btn">Confirmar edição</button>
                             </div>
                         </form>
                     </div>

@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faPlus, faTrash, faPen } from '@fortawesome/free-solid-svg-icons';
 import { setRevalidateHeaders } from 'next/dist/server/send-payload';
 import { request } from 'https';
+import swal from 'sweetalert';
 
 interface userProps {
   user: {
@@ -22,6 +23,9 @@ export const getServerSideProps = async () => {
     }
   }
 }
+function reload() {
+  window.location.reload();
+}
 
 export const sendDeleteHeader = async (userID: string) => {
   const headerSent = await userApi.delete("users/id/delete", {
@@ -29,7 +33,11 @@ export const sendDeleteHeader = async (userID: string) => {
       'id': userID
     }
   });
-  window.location.reload();
+  swal("Sucesso!", headerSent.data.message, "success", {
+    timer: 3000,
+  });
+  await new Promise(resolve => setTimeout(resolve, 3000));
+  return reload();
 }
 
 export default function Index(props: userProps) {

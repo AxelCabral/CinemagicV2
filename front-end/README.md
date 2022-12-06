@@ -41,5 +41,8 @@ comando: yarn add moment --save
 comando: yarn add react-data-table-component
 comando: yarn add styled-components
 
+- Instalação do Sweet Alert
+comando: yarn add sweetalert --save
+
 - Comando para rodar o front-end
 yarn dev

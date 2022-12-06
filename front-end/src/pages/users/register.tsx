@@ -2,6 +2,7 @@ import { userApi } from '../../lib/axios';
 import Footer from '../components/footer';
 import Navbar from '../components/navBar';
 import { FormEvent, useState } from 'react';
+import swal from 'sweetalert';
 
 interface userProps {
     user: {
@@ -18,10 +19,12 @@ export const getServerSideProps = async () => {
     }
 }
 
+
 export default function Index(props: userProps) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [name, setName] = useState("");
+
 
     async function registerUser(event: FormEvent) {
         event.preventDefault();
@@ -36,9 +39,13 @@ export default function Index(props: userProps) {
             setName('');
             setEmail('');
             setPassword('');
+
+            if (response.status == 201) {
+                swal("Sucesso!", response.data.message, "success");
+            }
         } catch (error) {
             console.log(error);
-            alert('Falha ao criar o usuário, tente novamente!');
+            swal("Falha!", "Falha ao criar o usuário, tente novamente!", "error");
         }
     }
     return (
@@ -55,21 +62,21 @@ export default function Index(props: userProps) {
                             <div className="wrap-input">
                                 <input className={name !== "" ? 'has-val input-register-form' : 'input-register-form'} type="text"
                                     value={name}
-                                    onChange={e => setName(e.target.value)}
+                                    onChange={e => setName(e.target.value)} required
                                 />
                                 <span className="input-effect" data-placeholder='Nome'></span>
                             </div>
                             <div className="wrap-input">
                                 <input className={email !== "" ? 'has-val input-register-form' : 'input-register-form'} type="email"
                                     value={email}
-                                    onChange={e => setEmail(e.target.value)}
+                                    onChange={e => setEmail(e.target.value)} required
                                 />
                                 <span className="input-effect" data-placeholder='Email'></span>
                             </div>
                             <div className="wrap-input">
                                 <input className={password !== "" ? 'has-val input-register-form' : 'input-register-form'} type="password"
                                     value={password}
-                                    onChange={e => setPassword(e.target.value)}
+                                    onChange={e => setPassword(e.target.value)} required
                                 />
                                 <span className="input-effect" data-placeholder='Senha'></span>
                             </div>

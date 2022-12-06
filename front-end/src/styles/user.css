@@ -307,3 +307,7 @@ section.user-form-container {
     cursor: pointer;
     color: #4623DE;
 }
+
+.alertSucess {
+    color: white;
+}
