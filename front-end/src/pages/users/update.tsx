@@ -2,17 +2,21 @@ import { userApi } from '../../lib/axios';
 import Footer from '../components/footer';
 import Navbar from '../components/navBar';
 import { FormEvent, useState } from 'react';
-import { useRouter } from 'next/router';
+
 
 interface userProps {
     user: {
         map: any; id: string, email: string, name: string, password: string
     }
 }
-export const getServerSideProps = async () => {
+
+
+export const getServerSideProps = async (context: any) => {
+    const { id } = context.query;
+
     const response = await userApi.get("users/update", {
         headers: {
-            id: '3d116b41-c8ef-4d3d-ab22-d4ba2eca4d44',
+            id: id,
         }
     });
     return {
@@ -29,18 +33,28 @@ export default function Index(props: userProps) {
     async function registerUser(event: FormEvent) {
         event.preventDefault();
         try {
-            const response = await userApi.post('users/new', {
+            var postData = {
                 name: name,
                 email: email,
                 password: password,
-            });
-            
+            };
+
+            let axiosConfig = {
+                headers: {
+                    id: props.user.id,
+                    'Content-Type': 'application/json;charset=UTF-8',
+                    "Access-Control-Allow-Origin": "*",
+                    "Accept": "application/json"
+                }
+            };
+            const response = await userApi.post('users/id/update', postData, axiosConfig);
+
             setName('');
             setEmail('');
             setPassword('');
         } catch (error) {
             console.log(error);
-            alert('Falha ao criar o usuário, tente novamente!');
+            alert('Falha ao atualizar o usuário, tente novamente!');
         }
     }
     return (
@@ -76,7 +90,7 @@ export default function Index(props: userProps) {
                                 <span className="input-effect" data-placeholder='Senha'></span>
                             </div>
                             <div className="container-register-form-btn">
-                                <button className="register-form-btn">Fazer registro</button>
+                                <button className="register-form-btn">Confirmar edição</button>
                             </div>
                         </form>
                     </div>
