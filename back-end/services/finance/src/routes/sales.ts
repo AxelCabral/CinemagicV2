@@ -19,7 +19,7 @@ export async function salesRoutes(fastify: FastifyInstance) {
             description: z.string()
         })
 
-        const { cinema_id, value, type, description} = createSalesBody.parse(request.body)
+        const { cinema_id, value, type, description } = createSalesBody.parse(request.body)
 
         await prisma.sales.create({
             data: {
