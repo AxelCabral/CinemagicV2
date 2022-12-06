@@ -17,10 +17,19 @@ interface HomeProps {
 
 export const getServerSideProps = async () => {
 
-    const response = await movieApi.get("/movies")
-    return {
-        props: {
-            movie: response.data.movie,
+    try{
+        const response = await movieApi.get("/movies/released")
+        return {
+            props: {
+                movie: response.data.movie,
+            }
+    }
+    } catch (error){
+        console.log(error);
+        return{
+            props: {
+                movie: null,
+            }
         }
     }
 }
@@ -35,7 +44,7 @@ export default function Home(props: HomeProps) {
                 <h2 className="movies-section-title">Lançamentos</h2>
                 <div className="movies-list">
                     {
-                        props.movie.map((movie: { id: Key | null | undefined; coverUrl: string | undefined; title: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal | null | undefined; releaseDate: moment.MomentInput; }) => (
+                        props.movie != null ? props.movie.map((movie: { id: Key | null | undefined; coverUrl: string | undefined; title: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal | null | undefined; releaseDate: moment.MomentInput; }) => (
                             <div key={movie.id} className="movie-list-item">
                                 <img className="movie-list-item-img" src={movie.coverUrl} alt="Capa do filme" />
                                 <span className="movie-list-item-title">{movie.title}</span>
@@ -43,7 +52,7 @@ export default function Home(props: HomeProps) {
                                     Lançamento: <br />{moment(movie.releaseDate).add(1, 'd').format('DD/MM/YYYY')}</p>
                                 <button className="movie-list-item-button">Comprar ingresso</button>
                             </div>
-                        ))
+                        )) : props.movie == null
                     }
                 </div>
             </main>

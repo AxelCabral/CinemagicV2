@@ -1,8 +1,10 @@
 import { FastifyInstance } from 'fastify';
 import { prisma } from '../lib/prisma'
 import { z } from 'zod'
+import { dateValidationFunction } from '../lib/date-validation-function';
 
 export async function movieRoutes(fastify: FastifyInstance) {
+
     fastify.get('/movies', async () => {
 
         const movie = await prisma.movie.findMany()
@@ -28,16 +30,28 @@ export async function movieRoutes(fastify: FastifyInstance) {
             releaseDate: z.string(),
             lengthInMinutes: z.number(),
             coverUrl: z.string(),
+            synopsis: z.string(),
+            parentalRatingType: z.string(),
+            dubbedVersion: z.boolean(),
+            subtitledVersion: z.boolean(),
+            originalLanguage: z.string()
         })
 
-        const { title, releaseDate, lengthInMinutes, coverUrl } = createMovieBody.parse(request.body)
+        const { title, releaseDate, lengthInMinutes, coverUrl, synopsis, parentalRatingType, dubbedVersion, subtitledVersion, originalLanguage } = createMovieBody.parse(request.body)
+
+        const releaseDateNew = dateValidationFunction(releaseDate)
 
         await prisma.movie.create({
             data: {
                 title,
-                releaseDate,
+                releaseDate: releaseDateNew,
                 lengthInMinutes,
-                coverUrl
+                coverUrl,
+                synopsis,
+                parentalRatingType,
+                dubbedVersion,
+                subtitledVersion,
+                originalLanguage
             }
         })
 
@@ -147,11 +161,16 @@ export async function movieRoutes(fastify: FastifyInstance) {
             releaseDate: z.string(),
             lengthInMinutes: z.number(),
             coverUrl: z.string(),
+            synopsis: z.string(),
+            parentalRatingType: z.string(),
+            dubbedVersion: z.boolean(),
+            subtitledVersion: z.boolean(),
+            originalLanguage: z.string()
         })
 
         const id = String(request.headers.id);
 
-        const { title, releaseDate, lengthInMinutes, coverUrl } = createMovieBody.parse(request.body)
+        const { title, releaseDate, lengthInMinutes, coverUrl, synopsis, parentalRatingType, dubbedVersion, subtitledVersion, originalLanguage } = createMovieBody.parse(request.body)
 
         const movie = await prisma.movie.findMany({
             where: {
@@ -165,20 +184,72 @@ export async function movieRoutes(fastify: FastifyInstance) {
             })
         }
 
+        const releaseDateNew = dateValidationFunction(releaseDate)
+
         await prisma.movie.update({
             where: {
                 id
             },
             data: {
                 title,
-                releaseDate,
+                releaseDate: releaseDateNew,
                 lengthInMinutes,
-                coverUrl
+                coverUrl,
+                synopsis,
+                parentalRatingType,
+                dubbedVersion,
+                subtitledVersion,
+                originalLanguage
             }
         })
 
         return reply.status(200).send({
             message: 'Atualizado com sucesso!'
         })
+    })
+
+    fastify.get('/movie/info', async(request) => {
+        const id = String(request.headers.id);
+
+        const movie = await prisma.movie.findUnique({
+            where: {
+                id,
+            },
+        })
+        const movieFull = await prisma.movieGenderR.findMany({
+            where: { movieId: id },
+            include: {gender: true},
+          });
+
+        return { movie, movieFull }
+    })
+
+    fastify.get('/movie/registerTwo', async(request) => {
+        const title = String(request.headers.title);
+
+        const movie = await prisma.movie.findUnique({
+            where: {
+                title,
+            },
+        })
+        const idMovie = movie?.id;
+        const gendersMov = await prisma.movieGenderR.findMany({
+            where: {
+                movieId: idMovie,
+            }
+        })
+
+        const genders: string[] = [];
+        gendersMov.map((gender) =>{
+            genders.push(gender.genderId);
+        })
+
+        const gender = await prisma.gender.findMany({
+            where:{
+                    id: {notIn: genders}
+            }
+        });
+
+        return { movie, gender}
     })
 }
