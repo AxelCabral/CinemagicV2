@@ -3,6 +3,7 @@ import Footer from '../components/footer';
 import Navbar from '../components/navBar';
 import { FormEvent, useState } from 'react';
 import swal from 'sweetalert';
+import Router from 'next/router';
 
 interface userProps {
     user: {
@@ -43,6 +44,7 @@ export default function Index(props: userProps) {
             if (response.status == 201) {
                 swal("Sucesso!", response.data.message, "success");
             }
+            Router.push({ pathname: '/users'});
         } catch (error) {
             console.log(error);
             swal("Falha!", "Falha ao criar o usuário, tente novamente!", "error");

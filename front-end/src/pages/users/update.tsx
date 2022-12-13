@@ -2,7 +2,8 @@ import { userApi } from '../../lib/axios';
 import Footer from '../components/footer';
 import Navbar from '../components/navBar';
 import { FormEvent, useState } from 'react';
-
+import swal from 'sweetalert';
+import Router from 'next/router';
 
 interface userProps {
     user: {
@@ -48,13 +49,14 @@ export default function Index(props: userProps) {
                 }
             };
             const response = await userApi.post('users/id/update', postData, axiosConfig);
-
-            setName('');
-            setEmail('');
-            setPassword('');
+            
+            if (response.status == 200) {
+                swal("Sucesso!", response.data.message, "success");
+            }
+            Router.push({ pathname: '/users'});
         } catch (error) {
             console.log(error);
-            alert('Falha ao atualizar o usuário, tente novamente!');
+            swal("Falha!", "Falha ao atualizar o usuário, tente novamente!", "error");
         }
     }
     return (

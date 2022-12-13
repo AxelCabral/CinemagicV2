@@ -27,7 +27,7 @@ function reload() {
   window.location.reload();
 }
 
-export const sendDeleteHeader = async (userID: string) => {
+export const sendDeleteHeader = async (userID: Key | null | undefined) => {
   const headerSent = await userApi.delete("users/id/delete", {
     headers: {
       'id': userID
