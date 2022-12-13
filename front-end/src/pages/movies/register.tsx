@@ -115,6 +115,9 @@ export default function Index(props: MovieProps) {
                                         <option value="L">L</option>
                                         <option value="10">10</option>
                                         <option value="12">12</option>
+                                        <option value="14">14</option>
+                                        <option value="16">16</option>
+                                        <option value="18">18</option>
                                     </select>
                                     <span className="input-effect" data-placeholder='Classificação Indicativa'></span>
                                 </div>

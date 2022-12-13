@@ -252,7 +252,7 @@ a{
   position: absolute;
   top: 40%;
   left: 25%;
-  width: 230px;
+  /*width: 230px;*/
   opacity: 0;
   transition: 0.4s all ease-in-out;
   color: white;

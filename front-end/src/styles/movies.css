@@ -250,16 +250,30 @@ select {
 }
 
 .movies-list.admin-list-movie {
-    background-color: #000;
-    margin: auto;
-    width: max-content;
-    padding: inherit;
-    padding-bottom: 2rem;
+  display: flex;
+  background-color: #000;
+  padding: inherit;
+  padding-bottom: 2rem;
+  flex-direction: row-reverse;
+  flex-wrap: wrap;
+  max-width: 75rem;
+  justify-content: flex-end;
 }
 
 .icon-movies {
     background-color: #333;
     border-radius: 5px;
+}
+.movie-btn-r2 {
+  width: 100%;
+  padding: 1rem;
+}
+
+.admin-list-item {
+  position: relative;
+  width: 180px;
+  padding: 10px;
+  height: auto;
 }
 
 

@@ -117,6 +117,7 @@ export default function registerPartTwo(props: MovieProps) {
                                                             : props.movie.parentalRatingType
                                 } />
                             </div>
+                            <a href="/movies"><button className="register-form-btn movie-btn-r2">Finalizar Cadastro</button></a>
                         </div>
                     </div>
                 }

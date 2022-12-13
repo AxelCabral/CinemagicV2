@@ -68,7 +68,7 @@ export default function Index(props: MovieProps) {
         <div className="movies-list admin-list-movie">
           {
             props.movie.map((movie: { id: Key | null | undefined; coverUrl: string | undefined; title: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal | null | undefined; releaseDate: moment.MomentInput; }) => (
-              <div key={movie.id} className="movie-list-item">
+              <div key={movie.id} className="movie-list-item admin-list-item">
                 <Link
                   href={{
                     pathname: '/movies/info/',
@@ -77,9 +77,9 @@ export default function Index(props: MovieProps) {
                 >
                   <img className="movie-list-item-img" src={movie.coverUrl} alt="Capa do filme" />
                   <span className="movie-list-item-title">{movie.title}</span>
-                  <p className="movie-list-item-desc">
-                    Lançamento: <br />{moment(movie.releaseDate).add(1, 'd').format('DD/MM/YYYY')}</p>
                 </Link>
+                <p className="movie-list-item-desc">
+                    Lançamento: <br />{moment(movie.releaseDate).format('DD/MM/YYYY')}</p>
                 <span onClick={() => sendDeleteHeader(movie.id)} className='icon fa-trash icon-movies'><FontAwesomeIcon icon={faTrash} /></span>
               </div>
             ))
