@@ -3,6 +3,7 @@
 
 generator client {
   provider = "prisma-client-js"
+  output   = "./generated/prisma-client-js"
 }
 
 generator erd {
@@ -53,11 +54,10 @@ model Idioma {
 }
 
 model Secao {
-  id          String   @id @default(cuid())
-  estreia     DateTime
-  enceramento DateTime
-  cinemaId    String
-  filmeId     String
+  id       String   @id @default(cuid())
+  estreia  DateTime
+  cinemaId String
+  filmeId  String
 
   filme   Filme  @relation(fields: [filmeId], references: [id])
   cinemas Cinema @relation(fields: [cinemaId], references: [id])
