@@ -4,6 +4,7 @@ import { FormEvent, useState } from 'react';
 import { movieApi } from '../../lib/axios';
 import swal from 'sweetalert';
 import Router, { withRouter } from 'next/router'
+import ReturnButton from '../components/returnButton';
 
 interface MovieProps {
     movie: {
@@ -68,6 +69,7 @@ export default function Index(props: MovieProps) {
         <div className="main-container">
             <Navbar></Navbar>
             <main className="users-container">
+                <ReturnButton></ReturnButton>
                 <div className="container-register movie-grid-form">
                     <span className="register-title movie-grid">
                         Cadastro de Filmes
@@ -160,7 +162,7 @@ export default function Index(props: MovieProps) {
                             </div>
                         </div>
                         <div className="container-register-form-btn">
-                                    <button className="register-form-btn movie-btn">Prosseguir registro</button>
+                            <button className="register-form-btn movie-btn">Prosseguir registro</button>
                         </div>
                     </form>
                 </div>
