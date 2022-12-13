@@ -8,6 +8,7 @@ import { faArrowLeft, faPlus, faTrash, faPen } from '@fortawesome/free-solid-svg
 import { setRevalidateHeaders } from 'next/dist/server/send-payload';
 import { request } from 'https';
 import swal from 'sweetalert';
+import ReturnButton from '../components/returnButton';
 
 interface userProps {
   user: {
@@ -45,11 +46,7 @@ export default function Index(props: userProps) {
     <div className="main-container">
       <Navbar></Navbar>
       <main className="users-container">
-        <div className="button-table-style">
-          <a href="#" title="Voltar" target="_self" rel="prev">
-            <span className='icon fa-arrow-left'><FontAwesomeIcon icon={faArrowLeft} /></span>
-          </a>
-        </div>
+        <ReturnButton></ReturnButton>
         <div className='data-table-title'>
           <div className='main-text-title'>
             <h2 className="movies-section-title">Usuários</h2>

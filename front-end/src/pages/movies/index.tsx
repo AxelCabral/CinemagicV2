@@ -5,8 +5,9 @@ import Navbar from '../components/navBar';
 import moment from 'moment';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowLeft, faPlus, faTrash, faPen } from '@fortawesome/free-solid-svg-icons';
+import { faPlus, faTrash, faPen } from '@fortawesome/free-solid-svg-icons';
 import swal from 'sweetalert';
+import ReturnButton from '../components/returnButton';
 
 interface MovieProps {
   movie: {
@@ -50,11 +51,7 @@ export default function Index(props: MovieProps) {
     <div className="main-container">
       <Navbar></Navbar>
       <main className="released-movies-container">
-        <div className="button-table-style">
-          <a href="#" title="Voltar" target="_self" rel="prev">
-            <span className='icon fa-arrow-left'><FontAwesomeIcon icon={faArrowLeft} /></span>
-          </a>
-        </div>
+        <ReturnButton></ReturnButton>
         <div className='data-table-title'>
           <div className='main-text-title'>
             <h2 className="movies-section-title">Filmes</h2>
