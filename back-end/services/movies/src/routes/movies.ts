@@ -208,7 +208,7 @@ export async function movieRoutes(fastify: FastifyInstance) {
         })
     })
 
-    fastify.get('/movie/info', async(request) => {
+    fastify.get('/movie/info', async (request) => {
         const id = String(request.headers.id);
 
         const movie = await prisma.movie.findUnique({
@@ -218,13 +218,13 @@ export async function movieRoutes(fastify: FastifyInstance) {
         })
         const movieFull = await prisma.movieGenderR.findMany({
             where: { movieId: id },
-            include: {gender: true},
-          });
+            include: { gender: true },
+        });
 
         return { movie, movieFull }
     })
 
-    fastify.get('/movie/registerTwo', async(request) => {
+    fastify.get('/movie/registerTwo', async (request) => {
         const title = String(request.headers.title);
 
         const movie = await prisma.movie.findUnique({
@@ -240,16 +240,16 @@ export async function movieRoutes(fastify: FastifyInstance) {
         })
 
         const genders: string[] = [];
-        gendersMov.map((gender) =>{
+        gendersMov.map((gender) => {
             genders.push(gender.genderId);
         })
 
         const gender = await prisma.gender.findMany({
-            where:{
-                    id: {notIn: genders}
+            where: {
+                id: { notIn: genders }
             }
         });
 
-        return { movie, gender}
+        return { movie, gender }
     })
 }

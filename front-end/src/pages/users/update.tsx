@@ -4,6 +4,7 @@ import Navbar from '../components/navBar';
 import { FormEvent, useState } from 'react';
 import swal from 'sweetalert';
 import Router from 'next/router';
+import ReturnButton from '../components/returnButton';
 
 interface userProps {
     user: {
@@ -49,11 +50,11 @@ export default function Index(props: userProps) {
                 }
             };
             const response = await userApi.post('users/id/update', postData, axiosConfig);
-            
+
             if (response.status == 200) {
                 swal("Sucesso!", response.data.message, "success");
             }
-            Router.push({ pathname: '/users'});
+            Router.push({ pathname: '/users' });
         } catch (error) {
             console.log(error);
             swal("Falha!", "Falha ao atualizar o usuário, tente novamente!", "error");
@@ -63,6 +64,7 @@ export default function Index(props: userProps) {
         <div className="main-container">
             <Navbar></Navbar>
             <main className="users-container">
+                <ReturnButton></ReturnButton>
                 <div className="container-register">
                     <div className="wrap-register">
                         <form className="register-form" onSubmit={registerUser}>

@@ -5,6 +5,7 @@ import moment from 'moment';
 import React, { useEffect, useRef, useState } from "react";
 import swal from 'sweetalert';
 import Router, { withRouter } from 'next/router'
+import ReturnButton from '../components/returnButton';
 
 interface MovieProps {
     movie: {
@@ -72,8 +73,7 @@ export default function registerPartTwo(props: MovieProps) {
     return (
         <div className="main-container">
             <Navbar></Navbar>
-            <section className="banner-container">
-            </section>
+            <ReturnButton></ReturnButton>
             <main className="info-movie-container">
                 <h2 className="movies-section-title info-title"></h2>
                 {
