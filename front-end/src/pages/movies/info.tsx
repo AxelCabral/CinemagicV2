@@ -2,6 +2,7 @@ import { movieApi } from '../../lib/axios';
 import Footer from '../components/footer';
 import Navbar from '../components/navBar';
 import moment from 'moment';
+import ReturnButton from '../components/returnButton';
 
 interface MovieProps {
     movie: {
@@ -51,6 +52,7 @@ export default function Index(props: MovieProps) {
             <section className="banner-container">
             </section>
             <main className="info-movie-container">
+                <ReturnButton></ReturnButton>
                 <h2 className="movies-section-title info-title">{props.movie.title.toUpperCase()}</h2>
                 {
                     <div key={props.movie.id} className="movie-info-main">
