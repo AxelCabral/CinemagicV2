@@ -1,321 +1,321 @@
 .users-container {
-    padding: 10px;
-    align-items: center;
-    margin-top: 40px;
+  padding: 10px;
+  align-items: center;
+  margin-top: 5px;
 }
 
 section.user-form-container {
-    background-image: url("https://media1.fdncms.com/inlander/imager/u/original/24484900/movie-theater.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    text-align: center;
-    color: white;
-    font-family: "Roboto", sans-serif;
-    font-weight: 500;
-    font-size: 22px;
-    width: auto;
-  }
-  
-  button.user-form-button-text {
-    background-color: transparent;
-    text-align: center;
-    color: white;
-    font-family: "Roboto", sans-serif;
-    border: white solid 2px;
-    font-size: 20px;
-    border-radius: 25px;
-    padding: 5px 30px 5px 30px;
-    margin-left: 2rem;
-    cursor: pointer;
-    transition: 0.25s;
-  }
-  
-  button.user-form-button-text:hover {
-    background-color: white;
-    color: #b721ff;
-    transition: 0.4s;
-  }
-  
-  .user-form-shadowbox {
-    width: auto;
-    background-color: rgba(51, 51, 51, 0.523);
-    padding: 2rem 0px 2rem 0px
-  }
-
-  .users-section-title {
-    color: white;
-    text-align: center;
-    padding: 15px;
-    font-size: 28px;
-    font-weight: 400;
-    margin-bottom: 20px;
-  }
-
-  input{
-    margin-left: 0;
-  }
-
-  .container-register{
-    width: 100%;
-    min-height: 75vh;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Roboto' sans-serif;
+  background-image: url("https://media1.fdncms.com/inlander/imager/u/original/24484900/movie-theater.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  color: white;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 22px;
+  width: auto;
 }
 
-.wrap-register{
-    width: 390px;
-    background-color: #333;
-    border-radius: 10px;
-    overflow: hidden;
-    padding: 77px 55px 33px 55px;
-    box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.2);
+button.user-form-button-text {
+  background-color: transparent;
+  text-align: center;
+  color: white;
+  font-family: "Roboto", sans-serif;
+  border: white solid 2px;
+  font-size: 20px;
+  border-radius: 25px;
+  padding: 5px 30px 5px 30px;
+  margin-left: 2rem;
+  cursor: pointer;
+  transition: 0.25s;
 }
 
-.register-title{
-    display: block;
-    font-size: 30px;
-    color: azure;
-    line-height: 1.2;
-    text-align: center;
-    margin-bottom: 50px;
+button.user-form-button-text:hover {
+  background-color: white;
+  color: #b721ff;
+  transition: 0.4s;
 }
 
-.register-form{
-    width: 100%;
+.user-form-shadowbox {
+  width: auto;
+  background-color: rgba(51, 51, 51, 0.523);
+  padding: 2rem 0px 2rem 0px;
 }
 
-.wrap-input{
-    width: 100%;
-    position: relative;
-    border-bottom: 2px solid #adadad;
-    margin-bottom: 37px;
+.users-section-title {
+  color: white;
+  text-align: center;
+  padding: 15px;
+  font-size: 28px;
+  font-weight: 400;
+  margin-bottom: 20px;
 }
 
-.input-register-form{
-    font-size: 15px;
-    color: #fff;
-    line-height: 1.2;
-    border: none;
-    display: block;
-    width: 100%;
-    height: 45px;
-    background-color: transparent;
-    padding: 0 5px;
+input {
+  margin-left: 0;
 }
 
-.input-effect{
-    position: absolute;
-    display: block;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    pointer-events: none;
-    color: #adadad;
+.container-register {
+  width: 100%;
+  min-height: 75vh;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  font-family: "Roboto" sans-serif;
 }
 
-.input-effect::before{
-    content: "";
-    display: block;
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 0;
-    height: 2px;
-
-    -webkit-transition: all 0.4s;
-    -o-transition: all 0.4s;
-    -moz-transition: all 0.4s;
-    transition: all 0.4s;
-    background: #6a7dfe;
-
-    background: -webkit-linear-gradient(to left, #21d4fd, #b721ff);
-    background: -o-linear-gradient(to left, #21d4fd, #b721ff);
-    background: -moz-linear-gradient(to left, #21d4fd, #b721ff);
-    background: linear-gradient(to left, #21d4fd, #b721ff);
+.wrap-register {
+  width: 390px;
+  background-color: #333;
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 77px 55px 33px 55px;
+  box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.2);
 }
 
-.input-effect::after{
-    font-size: 15px;
-    color: #999;
-    line-height: 1.2;
-    content: attr(data-placeholder);
-    display: block;
-    width: 100%;
-    position: absolute;
-    top: 16px;
-    left: 0px;
-    padding-left: 5px;
-
-    -webkit-transition: all 0.4s;
-    -o-transition: all 0.4s;
-    -moz-transition: all 0.4s;
-    transition: all 0.4s;
+.register-title {
+  display: block;
+  font-size: 30px;
+  color: azure;
+  line-height: 1.2;
+  text-align: center;
+  margin-bottom: 50px;
 }
 
-.input-register-form:focus{
-    outline: 0;
+.register-form {
+  width: 100%;
 }
 
-.input-register-form:focus + .input-effect::after{
-    top: -15px;
+.wrap-input {
+  width: 100%;
+  position: relative;
+  border-bottom: 2px solid #adadad;
+  margin-bottom: 37px;
 }
 
-.input-register-form:focus + .input-effect::before{
-    width: 100%;
+.input-register-form {
+  font-size: 15px;
+  color: #fff;
+  line-height: 1.2;
+  border: none;
+  display: block;
+  width: 100%;
+  height: 45px;
+  background-color: transparent;
+  padding: 0 5px;
 }
 
-.input-register-form[value=""]::-webkit-datetime-edit{ 
-    color: transparent;
- }
- .input-register-form:focus::-webkit-datetime-edit{ 
-    color: white;
+.input-effect {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  color: #adadad;
 }
 
+.input-effect::before {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
 
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+  background: #6a7dfe;
 
-.container-register-form-btn{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding-bottom: 13px;
+  background: -webkit-linear-gradient(to left, #21d4fd, #b721ff);
+  background: -o-linear-gradient(to left, #21d4fd, #b721ff);
+  background: -moz-linear-gradient(to left, #21d4fd, #b721ff);
+  background: linear-gradient(to left, #21d4fd, #b721ff);
 }
 
-.register-form-btn{
-    font-size: 15px;
-    border: none;
-    border-radius: 10px;
-    color: #fff;
-    line-height: 1.2;
-    text-transform: uppercase;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 50px;
+.input-effect::after {
+  font-size: 15px;
+  color: #999;
+  line-height: 1.2;
+  content: attr(data-placeholder);
+  display: block;
+  width: 100%;
+  position: absolute;
+  top: 16px;
+  left: 0px;
+  padding-left: 5px;
 
-    background: -webkit-linear-gradient(to left, #21d4fd, #b721ff);
-    background: -o-linear-gradient(to left, #21d4fd, #b721ff);
-    background: -moz-linear-gradient(to left, #21d4fd, #b721ff);
-    background: linear-gradient(to left, #21d4fd, #b721ff);
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
 }
 
-.register-form-btn:hover{
-    cursor: pointer;
+.input-register-form:focus {
+  outline: 0;
 }
 
-.has-val + .input-effect::after{
-    top: -15px;
+.input-register-form:focus + .input-effect::after {
+  top: -15px;
 }
 
-.has-val + .input-effect::before{
-    width: 100%;
+.input-register-form:focus + .input-effect::before {
+  width: 100%;
+}
+
+.input-register-form[value=""]::-webkit-datetime-edit {
+  color: transparent;
+}
+.input-register-form:focus::-webkit-datetime-edit {
+  color: white;
+}
+
+.container-register-form-btn {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-bottom: 13px;
+}
+
+.register-form-btn {
+  font-size: 15px;
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  line-height: 1.2;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+
+  background: -webkit-linear-gradient(to left, #21d4fd, #b721ff);
+  background: -o-linear-gradient(to left, #21d4fd, #b721ff);
+  background: -moz-linear-gradient(to left, #21d4fd, #b721ff);
+  background: linear-gradient(to left, #21d4fd, #b721ff);
+}
+
+.register-form-btn:hover {
+  cursor: pointer;
+}
+
+.has-val + .input-effect::after {
+  top: -15px;
+}
+
+.has-val + .input-effect::before {
+  width: 100%;
 }
 
 .button-table-style {
-    width: 40px;
-    height: 40px;  
-    margin-top: 1rem;
-    margin-left: 2rem;
-    background-color: white;
-    box-shadow: 2px 2px 2px #000;
-    border-radius: 25px;
-    padding: 0.1rem;
-    text-items: center;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    -ms-flex-align: center;
-    -webkit-align-items: center;
-    -webkit-box-align: center;
-    align-items: center;
+  width: 40px;
+  height: 40px;
+  margin-top: 1rem;
+  margin-left: 2rem;
+  background-color: white;
+  box-shadow: 2px 2px 2px #000;
+  border-radius: 25px;
+  padding: 0.1rem;
+  text-items: center;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  align-items: center;
 }
 
-.button-table-style.plus{
-    margin-top: -6em;
+.button-table-style.plus {
+  margin-top: -6em;
 }
 
-.button-table-style a{
-    margin: auto;
+.button-table-style a {
+  margin: auto;
 }
 
 .button-table-style span.icon:hover {
-    color: #4623DE;
+  color: #4623de;
 }
 .button-table-style span.icon {
-    color: #333;
+  color: #333;
 }
 
 .data-table-title {
-    color: #fff;
-    font-size: 12px;
-    padding: 10px;
-    margin-left: auto;
-    width: 41rem;
-    margin-right: auto;
-    border-radius: 10px;
-    font-weight: 300;
-    border-bottom: 1px solid rgba(31, 45, 65, 0.125);
-    text-align: center;
-    margin: auto;
-    background-color: black;
+  color: #fff;
+  font-size: 12px;
+  padding: 10px;
+  margin-left: auto;
+  width: 41rem;
+  margin-right: auto;
+  border-radius: 10px;
+  font-weight: 300;
+  border-bottom: 1px solid rgba(31, 45, 65, 0.125);
+  text-align: center;
+  margin: auto;
+  background-color: black;
 }
 
 .list-out-data {
-    padding: 18px;
-    background-color: rgb(236, 239, 243);
-    width: 40rem;
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 10px;
-    margin-bottom: 70px;
-    box-shadow: 1px 1px 3px rgb(117, 116, 116);
+  padding: 18px;
+  background-color: rgb(236, 239, 243);
+  width: 40rem;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+  margin-bottom: 70px;
+  box-shadow: 1px 1px 3px rgb(117, 116, 116);
 }
 
-.data-table table{
-    width: auto;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: #fff;
-    vertical-align: middle;
-    border-color: inherit;
-    border-collapse: separate !important;
-    border-spacing: 0;
+.data-table table {
+  width: auto;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #fff;
+  vertical-align: middle;
+  border-color: inherit;
+  border-collapse: separate !important;
+  border-spacing: 0;
 }
 
-.data-table td{
-    text-align: center;
-    width: 20%;
-    border: 1px solid #e3e6ec;
-    color: black;
+.data-table td {
+  text-align: center;
+  width: 20%;
+  border: 1px solid #e3e6ec;
+  color: black;
 }
-.data-table tr{
-    height: 50px;
+.data-table tr {
+  height: 50px;
 }
-.data-table th{
-    color: #fff;
-    border: 1px solid #e3e6ec;
-    background-color: #0e0e0e;
+.data-table th {
+  color: #fff;
+  border: 1px solid #e3e6ec;
+  background-color: #0e0e0e;
 }
-.data-table tr:hover{
-    background-color: rgba(31, 45, 65, 0.178);
-}
-
-.fa-trash, .fa-pen{
-    color: black;
-    margin-left: 0.2em;
-    margin-right: 0.2em;
+.data-table tr:hover {
+  background-color: rgba(31, 45, 65, 0.178);
 }
 
-.fa-trash:hover, .fa-pen:hover{
-    cursor: pointer;
-    color: #4623DE;
+.fa-trash,
+.fa-pen {
+  color: black;
+  margin-left: 0.2em;
+  margin-right: 0.2em;
+}
+
+.fa-trash:hover,
+.fa-pen:hover {
+  cursor: pointer;
+  color: #4623de;
 }
 
 .alertSucess {
-    color: white;
+  color: white;
 }
