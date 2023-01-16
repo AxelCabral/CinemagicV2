@@ -90,7 +90,7 @@ export async function genderRoutes(fastify: FastifyInstance) {
         })
     })
 
-    fastify.post('/gender/:id/update', async (request, reply) => {
+    fastify.post('/genders/:id/update', async (request, reply) => {
         const createGenderBody = z.object({
             name: z.string(),
         })
@@ -124,4 +124,17 @@ export async function genderRoutes(fastify: FastifyInstance) {
             message: 'Atualizado com sucesso!'
         })
     })
+
+    fastify.get('/gender/update', async (request) => {
+        const id = String(request.headers.id);
+
+        const gender = await prisma.gender.findUnique({
+            where: {
+                id,
+            },
+        })
+
+        return { gender }
+    })
+
 }

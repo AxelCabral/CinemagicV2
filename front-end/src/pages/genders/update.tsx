@@ -1,4 +1,4 @@
-import { userApi } from '../../lib/axios';
+import { movieApi } from '../../lib/axios';
 import Footer from '../components/footer';
 import Navbar from '../components/navBar';
 import { FormEvent, useState } from 'react';
@@ -6,57 +6,54 @@ import swal from 'sweetalert';
 import Router from 'next/router';
 import ReturnButton from '../components/returnButton';
 
-interface userProps {
-    user: {
-        map: any; id: string, email: string, name: string, password: string
+interface genderProps {
+    gender: {
+        map: any; id: string, name: string;
     }
 }
+
 
 export const getServerSideProps = async (context: any) => {
     const { id } = context.query;
 
-    const response = await userApi.get("users/update", {
+    const response = await movieApi.get("genders/update", {
         headers: {
             id: id,
         }
     });
     return {
         props: {
-            user: response.data.user
+            gender: response.data.gender
         }
     }
 }
-export default function Index(props: userProps) {
+export default function Index(props: genderProps) {
 
-    const [email, setEmail] = useState(props.user.email);
-    const [password, setPassword] = useState(props.user.password);
-    const [name, setName] = useState(props.user.name);
-    async function registerUser(event: FormEvent) {
+    const [name, setName] = useState(props.gender.name);
+    async function registerGender(event: FormEvent) {
         event.preventDefault();
         try {
             var postData = {
                 name: name,
-                email: email,
-                password: password,
             };
 
             let axiosConfig = {
                 headers: {
-                    id: props.user.id,
+                    id: props.gender.id,
                     'Content-Type': 'application/json;charset=UTF-8',
                     "Access-Control-Allow-Origin": "*",
                     "Accept": "application/json"
                 }
             };
-            const response = await userApi.post('users/id/update', postData, axiosConfig);
+            const response = await movieApi.post('genders/id/update', postData, axiosConfig);
 
             if (response.status == 200) {
                 swal("Sucesso!", response.data.message, "success");
             }
-            Router.push({ pathname: '/users' });
+            Router.push({ pathname: '/genders' });
         } catch (error) {
             console.log(error);
-            swal("Falha!", "Falha ao atualizar o usuário, tente novamente!", "error");
+            swal("Falha!", "Falha ao atualizar o gênero, tente novamente!", "error");
         }
     }
     return (
@@ -66,9 +63,9 @@ export default function Index(props: userProps) {
                 <ReturnButton></ReturnButton>
                 <div className="container-register">
                     <div className="wrap-register">
-                        <form className="register-form" onSubmit={registerUser}>
+                        <form className="register-form" onSubmit={registerGender}>
                             <span className="register-title">
-                                Atualização de Usuário
+                                Atualização de Gênero
                             </span>
 
                             <div className="wrap-input">
@@ -77,20 +74,6 @@ export default function Index(props: userProps) {
                                     onChange={e => setName(e.target.value)}
                                 />
                                 <span className="input-effect" data-placeholder='Nome'></span>
-                            </div>
-                            <div className="wrap-input">
-                                <input className={email !== "" ? 'has-val input-register-form' : 'input-register-form'} type="email"
-                                    value={email}
-                                    onChange={e => setEmail(e.target.value)}
-                                />
-                                <span className="input-effect" data-placeholder='Email'></span>
-                            </div>
-                            <div className="wrap-input">
-                                <input className={password !== "" ? 'has-val input-register-form' : 'input-register-form'} type="password"
-                                    value={password}
-                                    onChange={e => setPassword(e.target.value)}
-                                />
-                                <span className="input-effect" data-placeholder='Senha'></span>
                             </div>
                             <div className="container-register-form-btn">
                                 <button className="register-form-btn">Confirmar edição</button>

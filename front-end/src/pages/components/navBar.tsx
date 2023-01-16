@@ -17,7 +17,7 @@ export default function Navbar() {
               <a href="/movies">Filmes</a>
             </li>
             <li className="menu-list-item">
-              <a href="/genders">Generos</a>
+              <a href="/genders">Gêneros</a>
             </li>
             <li className="menu-list-item">
               <a href="/sessions">Sessões</a>

@@ -4,9 +4,7 @@ import Footer from '../components/footer';
 import Navbar from '../components/navBar';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowLeft, faPlus, faTrash, faPen } from '@fortawesome/free-solid-svg-icons';
-import { setRevalidateHeaders } from 'next/dist/server/send-payload';
-import { request } from 'https';
+import { faPlus, faTrash, faPen } from '@fortawesome/free-solid-svg-icons';
 import swal from 'sweetalert';
 import ReturnButton from '../components/returnButton';
 
