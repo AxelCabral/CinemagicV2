@@ -1,7 +1,7 @@
 import { Key, ReactElement, JSXElementConstructor, ReactFragment, ReactPortal } from 'react';
 import { movieApi } from '../../lib/axios';
 import Footer from '../components/footer';
-import Navbar from '../components/navBar';
+import NavbarUser from '../components/navBarUser';
 import moment from 'moment';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -12,7 +12,7 @@ import ReturnButton from '../components/returnButton';
 export default function Index() {
   return (
     <div className="main-container">
-      <Navbar></Navbar>
+      <NavbarUser></NavbarUser>
       <main className="released-movies-container">
         <ReturnButton></ReturnButton>
         <div className='data-table-title'>

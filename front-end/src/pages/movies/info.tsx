@@ -1,6 +1,6 @@
 import { movieApi } from '../../lib/axios';
 import Footer from '../components/footer';
-import Navbar from '../components/navBar';
+import NavbarUser from '../components/navBarUser';
 import moment from 'moment';
 import ReturnButton from '../components/returnButton';
 
@@ -48,7 +48,7 @@ export const getServerSideProps = async (context: { query: { id: any; }; }) => {
 export default function Index(props: MovieProps) {
     return (
         <div className="main-container">
-            <Navbar></Navbar>
+            <NavbarUser></NavbarUser>
             <section className="banner-container">
             </section>
             <main className="info-movie-container">
