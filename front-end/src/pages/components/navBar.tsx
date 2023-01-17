@@ -25,6 +25,12 @@ export default function Navbar() {
             <li className="menu-list-item">
               <a href="/users">Usuários</a>
             </li>
+            <li className="menu-list-item">
+              <a href="/sales">Financeiro</a>
+            </li>
+            <li className="menu-list-item">
+              <a href="/cinema">Cinemas</a>
+            </li>
             <li className="profile-container">
               <a href="login">
                 <div className="profile-picture"></div>Login

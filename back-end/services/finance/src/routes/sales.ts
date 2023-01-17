@@ -61,4 +61,58 @@ export async function salesRoutes(fastify: FastifyInstance) {
         })
     })
 
+    fastify.post('/sales/:id/update', async (request, reply) => {
+        
+        const createSalesBody = z.object({
+            cinema_id: z.undefined(),
+            value: z.number(),
+            type: z.string(),
+            description: z.string()
+        })
+
+        const id = String(request.headers.id);
+
+        const { cinema_id, value, type, description } = createSalesBody.parse(request.body)
+
+        const sales = await prisma.sales.findMany({
+            where: {
+                id,
+            },
+        })
+
+        if (sales.length == 0) {
+            return reply.status(400).send({
+                message: 'A venda não foi encontrado.'
+            })
+        }
+
+        await prisma.sales.update({
+            where: {
+                id
+            },
+            data: {
+                cinema_id,
+                value,
+                type,
+                description,
+            }
+        })
+
+        return reply.status(200).send({
+            message: 'Atualizado com sucesso!'
+        })
+    })
+
+    fastify.get('/sales/update', async (request) => {
+        const id = String(request.headers.id);
+
+        const sales = await prisma.sales.findUnique({
+            where: {
+                id,
+            },
+        })
+
+        return { sales }
+    })
+
 }
