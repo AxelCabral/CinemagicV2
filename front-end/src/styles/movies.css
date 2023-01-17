@@ -103,7 +103,6 @@ img.movie-info-img {
   font-size: 25px;
 }
 
-
 .movie-info-desc.synopsis {
   padding: 1em 8em;
   margin-bottom: 2em;
@@ -139,7 +138,6 @@ select.input-register-form {
 }
 
 select {
-
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -231,8 +229,15 @@ button.movie-btn {
 
 .dropdown-item:hover {
   background:
-    /* gradient can be an image */
-    linear-gradient(to left, #4623DE, 35%, #7733F5, #8423DE, #b721ff) left bottom #000 no-repeat;
+    /* gradient can be an image */ linear-gradient(
+      to left,
+      #4623de,
+      35%,
+      #7733f5,
+      #8423de,
+      #b721ff
+    )
+    left bottom #000 no-repeat;
 }
 
 .movie-gender-dropdown {
@@ -292,13 +297,21 @@ span.product-title {
   min-width: 350px;
 }
 
-p.product-price {
+p.product-name {
   color: white;
   font-size: 20px;
   min-width: 350px;
   max-width: 350px;
   text-align: center;
   font-weight: bold;
+}
+
+p.product-price {
+  color: white;
+  font-size: 20px;
+  min-width: 350px;
+  max-width: 350px;
+  text-align: center;
 }
 
 .product-buy-btn {
@@ -323,4 +336,31 @@ p.product-price {
   width: 350px;
   padding: 10px;
   height: auto;
+}
+
+.products-list.admin-list-product {
+  display: flex;
+  background-color: #000;
+  padding: inherit;
+  padding-bottom: 2rem;
+  flex-direction: row-reverse;
+  flex-wrap: wrap;
+  max-width: 75rem;
+}
+
+.products-list.admin-list-product {
+  display: flex;
+  background-color: #000;
+  padding: inherit;
+  padding-bottom: 2rem;
+  flex-direction: row-reverse;
+  flex-wrap: wrap;
+  max-width: 75rem;
+}
+
+.products-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+  justify-content: center;
 }

@@ -12,7 +12,6 @@ interface genderProps {
     }
 }
 
-
 export const getServerSideProps = async (context: any) => {
     const { id } = context.query;
 

@@ -125,7 +125,7 @@ export async function genderRoutes(fastify: FastifyInstance) {
         })
     })
 
-    fastify.get('/gender/update', async (request) => {
+    fastify.get('/genders/update', async (request) => {
         const id = String(request.headers.id);
 
         const gender = await prisma.gender.findUnique({

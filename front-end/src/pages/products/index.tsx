@@ -28,9 +28,9 @@ export default function Index() {
                   }}
                 >
                   <img className="product-list-item-img" src="https://vivariomarrecife.com.br/wp-content/uploads/2021/09/1-4.png" alt="Imagem Produto" />
-                  <span className="movie-list-item-title product-title">ComboMega Pipoca e Refri</span>
                 </Link>
-                <p className="product-price">Preço: R$ 25,00</p>
+                <p className="product-name">ComboMega Pipoca e Refri</p>
+                <p className="product-price">R$ 25,00</p>
                 <button className="product-buy-btn">Comprar</button>
               </div>
               <div className="movie-list-item product-list-item">
@@ -40,9 +40,9 @@ export default function Index() {
                   }}
                 >
                   <img className="product-list-item-img" src="https://img.clasf.com.br/2019/11/29/copo-da-coca-cola-20191129053739.3555750015.jpg" alt="Imagem Produto" />
-                  <span className="movie-list-item-title product-title">Refrigerante Coca-Cola</span>
                 </Link>
-                <p className="product-price">Preço: R$ 13,00</p>
+                <p className="product-name">Refrigerante Coca-Cola</p>
+                <p className="product-price">R$ 13,00</p>
                 <button className="product-buy-btn">Comprar</button>
               </div>
               <div className="movie-list-item product-list-item">
@@ -52,9 +52,9 @@ export default function Index() {
                   }}
                 >
                   <img className="product-list-item-img" src="https://a-static.mlcdn.com.br/1500x1500/balde-de-pipoca-coca-cola-medio-familia-cinema-filme-21l-plasutil/savaggiastore/661113/9af369ed0e6cfde890b8e2641bf019e6.jpg" alt="Imagem Produto" />
-                  <span className="movie-list-item-title product-title">Balde de Pipoca 2,1L</span>
                 </Link>
-                <p className="product-price">Preço: R$ 31,00</p>
+                <p className="product-name">Balde de Pipoca 2,1L</p>
+                <p className="product-price">R$ 31,00</p>
                 <button className="product-buy-btn">Comprar</button>
               </div>
         </div>

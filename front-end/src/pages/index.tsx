@@ -3,6 +3,7 @@ import moment from 'moment';
 import { Key, ReactElement, JSXElementConstructor, ReactFragment, ReactPortal } from 'react';
 import Navbar from './components/navBar'
 import Footer from './components/footer'
+import NavbarUser from './components/navBarUser';
 
 interface HomeProps {
     movie: {
@@ -95,7 +96,8 @@ export default function Home(props: HomeProps) {
                 </div>
             </section>
             <section className="email-form-container">
-                <div className="email-form-shadowbox"><p className="email-form-title">Receba nossa programação por email <a href="#"><button className="email-form-button-text">Cadastre-se</button></a></p></div>
+                <div className="email-form-shadowbox"><p className="email-form-title">Receba nossa programação por email <a href="#">
+                    <button className="email-form-button-text">Cadastre-se</button></a></p></div>
             </section>
             <Footer></Footer>
         </div>
