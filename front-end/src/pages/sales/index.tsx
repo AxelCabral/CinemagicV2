@@ -47,7 +47,7 @@ export default function Index(props: salesProps) {
         <ReturnButton></ReturnButton>
         <div className='data-table-title'>
           <div className='main-text-title'>
-            <h2 className="movies-section-title">Vendas</h2>
+            <h2 className="movies-section-title">Relatório</h2>
           </div>
           <div className="button-table-style plus">
             <a href="sales/register" title="Nova venda" target="_self" rel="next">
