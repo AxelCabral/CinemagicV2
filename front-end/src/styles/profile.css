@@ -1,0 +1,39 @@
+.profile-container {
+    padding: 10px;
+    align-items: center;
+    margin-top: 5px;
+  }
+
+  section.user-form-container {
+    background-image: url("https://media1.fdncms.com/inlander/imager/u/original/24484900/movie-theater.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    color: white;
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-size: 22px;
+    width: auto;
+  }
+
+  .profile-list-out-data {
+    padding: 18px;
+    background-color: rgb(236, 239, 243);
+    width: 40rem;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+    margin-bottom: 70px;
+    box-shadow: 1px 1px 3px rgb(117, 116, 116);
+  }
+  .profile-data-table table {
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #fff;
+    vertical-align: middle;
+    border-color: inherit;
+    border-collapse: separate !important;
+    border-spacing: 0;
+  }
