@@ -47,12 +47,26 @@ export default function Index(props: salesProps) {
         <ReturnButton></ReturnButton>
         <div className='data-table-title'>
           <div className='main-text-title'>
-            <h2 className="movies-section-title">Relatório</h2>
+            <h2 className="movies-section-title">Relatório do mês de {new Date().toLocaleString("pt-BR", { month: "long" })}</h2>
           </div>
-          <div className="button-table-style plus">
-            <a href="sales/register" title="Nova venda" target="_self" rel="next">
-              <span className='icon fa-plus'><FontAwesomeIcon icon={faPlus} /></span>
-            </a>
+        </div>
+        <div className='list-out-main'>
+          <div className='list-out-data'>
+            <div className='data-table'>
+             <div className='profit-area'>
+             <br />
+              <p>Lucro do mês:<strong> R$</strong> 2.300,00</p>
+              <br />
+              <hr />
+              <br />
+              <p>Entrada do mês:<strong> R$</strong> 4.800,55</p>
+              <br />
+              <hr />
+              <br />
+              <p>Despesas do mês:<strong> R$</strong> 2.500,55</p>
+              <br />
+             </div>
+            </div>
           </div>
         </div>
         <div className='list-out-main'>
@@ -61,7 +75,6 @@ export default function Index(props: salesProps) {
               <table className="users-table-list">
                 <tbody>
                   <tr>
-                    <th>Cinema</th>
                     <th>Valor</th>
                     <th>Tipo</th>
                     <th>Descrição</th>
@@ -70,8 +83,7 @@ export default function Index(props: salesProps) {
                   {
                     props.sales.map((sales: { id: Key | null | undefined; cinema_id: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal | null | undefined; value: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal | null | undefined; type: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal | null | undefined; description: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal | null | undefined; }) => (
                       <tr key={sales.id}>
-                        <td>{sales.cinema_id}</td>
-                        <td>{sales.value}</td>
+                        <td>R$ {sales.value}</td>
                         <td>{sales.type}</td>
                         <td>{sales.description}</td>
                         <td><span onClick={() => sendDeleteHeader(sales.id)} className='icon fa-trash'><FontAwesomeIcon icon={faTrash} /></span>
