@@ -229,15 +229,13 @@ button.movie-btn {
 
 .dropdown-item:hover {
   background:
-    /* gradient can be an image */ linear-gradient(
-      to left,
+    /* gradient can be an image */
+    linear-gradient(to left,
       #4623de,
       35%,
       #7733f5,
       #8423de,
-      #b721ff
-    )
-    left bottom #000 no-repeat;
+      #b721ff) left bottom #000 no-repeat;
 }
 
 .movie-gender-dropdown {
@@ -363,4 +361,8 @@ p.product-price {
   flex-wrap: wrap;
   margin: auto;
   justify-content: center;
+}
+
+.product-buy-btn:hover {
+  cursor: pointer;
 }
