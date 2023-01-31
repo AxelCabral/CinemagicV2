@@ -495,3 +495,7 @@ span.title {
 .profit-area {
   text-align: center;
 }
+
+div#products-list {
+  justify-content: center;
+}

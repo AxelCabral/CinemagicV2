@@ -11,20 +11,21 @@ datasource db {
 }
 
 model Sales {
-  id          String @id @default(uuid())
+  id          String   @id @default(uuid())
   value       Float
   type        String
   description String
-  cinemaT     Cinema @relation("cinema_sales", fields: [cinema_id], references: [id], onDelete: Cascade)
   cinema_id   String
+  saleDate    DateTime
 
   @@map("sales")
 }
 
-model Cinema {
-  id           String  @id @default(uuid())
-  name         String
-  cinema_sales Sales[] @relation("cinema_sales")
+model Products {
+  id     String @id @default(uuid())
+  urlImg String
+  price  Float
+  name   String
 
-  @@map("cinema")
+  @@map("products")
 }
