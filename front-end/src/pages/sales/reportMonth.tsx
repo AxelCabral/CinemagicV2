@@ -35,9 +35,7 @@ export default function Index(props: salesProps) {
             <div className='data-table'>
              <div className='profit-area'>
              <br />
-              <p>Lucro do mês: {
-              
-              (2300).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})} </p>
+              <p>Lucro do mês: {(2300).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})} </p>
               <br />
               <hr />
               <br />
