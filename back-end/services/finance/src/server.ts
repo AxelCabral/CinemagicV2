@@ -1,7 +1,7 @@
 import cors from '@fastify/cors'
 import Fastify from 'fastify'
-import { cinemaRoutes } from './routes/cinema'
 import { salesRoutes } from './routes/sales'
+import { productsRoutes } from './routes/products'
 
 
 async function bootstrap() {
@@ -12,9 +12,9 @@ async function bootstrap() {
         origin: true,
     })
     
-    await fastify.register(cinemaRoutes)
     await fastify.register(salesRoutes)
-
+    await fastify.register(productsRoutes)
+    
     await fastify.listen({ port: 3336 })
 }
 

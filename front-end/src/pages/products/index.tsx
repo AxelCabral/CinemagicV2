@@ -1,5 +1,5 @@
 import { Key, ReactElement, JSXElementConstructor, ReactFragment, ReactPortal } from 'react';
-import { movieApi } from '../../lib/axios';
+import { salesApi } from '../../lib/axios';
 import Footer from '../components/footer';
 import NavbarUser from '../components/navBarUser';
 import moment from 'moment';
@@ -9,7 +9,27 @@ import { faPlus, faTrash, faPen } from '@fortawesome/free-solid-svg-icons';
 import swal from 'sweetalert';
 import ReturnButton from '../components/returnButton';
 
-export default function Index() {
+interface ProductProps {
+  product: {
+    map: any;
+    id: string,
+    name: string,
+    price: number,
+    urlImg: string,
+  }
+}
+
+export const getServerSideProps = async () => {
+
+  const response = await salesApi.get("/products")
+  return {
+    props: {
+      product: response.data.products,
+    }
+  }
+}
+
+export default function Index(props: ProductProps) {
   return (
     <div className="main-container">
       <NavbarUser></NavbarUser>
@@ -20,48 +40,17 @@ export default function Index() {
             <h2 className="movies-section-title">Produtos</h2>
           </div>
         </div>
-        <div className="movies-list admin-list-movie">
-          <div className="movie-list-item product-list-item">
-            <Link
-              href={{
-                pathname: '/products/info/',
-              }}
-            >
-              <img className="product-list-item-img" src="https://vivariomarrecife.com.br/wp-content/uploads/2021/09/1-4.png" alt="Imagem Produto" />
-            </Link>
-            <p className="product-name">ComboMega Pipoca e Refri</p>
-            <p className="product-price">R$ 25,00</p>
-            <button className="product-buy-btn">Comprar</button>
-          </div>
-          <div className="movie-list-item product-list-item">
-            <Link
-              href={{
-                pathname: '/products/info/',
-              }}
-            >
-              <img className="product-list-item-img" src="https://img.clasf.com.br/2019/11/29/copo-da-coca-cola-20191129053739.3555750015.jpg" alt="Imagem Produto" />
-            </Link>
-            <p className="product-name">Refrigerante Coca-Cola</p>
-            <p className="product-price">R$ 13,00</p>
-            <Link
-              href={{
-                pathname: '/products/car/',
-              }}>
-              <button className="product-buy-btn">Comprar</button>
-            </Link>
-          </div>
-          <div className="movie-list-item product-list-item">
-            <Link
-              href={{
-                pathname: '/products/info/',
-              }}
-            >
-              <img className="product-list-item-img" src="https://a-static.mlcdn.com.br/1500x1500/balde-de-pipoca-coca-cola-medio-familia-cinema-filme-21l-plasutil/savaggiastore/661113/9af369ed0e6cfde890b8e2641bf019e6.jpg" alt="Imagem Produto" />
-            </Link>
-            <p className="product-name">Balde de Pipoca 2,1L</p>
-            <p className="product-price">R$ 31,00</p>
-            <button className="product-buy-btn">Comprar</button>
-          </div>
+        <div className="movies-list admin-list-movie" id="products-list">
+          {
+            props.product.map((product: { id: Key | null | undefined; urlImg: string | undefined; name: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal | null | undefined; price: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal | null | undefined; }) => (
+              <div key={product.id} className="movie-list-item product-list-item">
+                <img className="product-list-item-img" src={product.urlImg} alt="Imagem Produto" />
+                <p className="product-name">{product.name}</p>
+                <p className="product-price">R$ {product.price}</p>
+                <button className="product-buy-btn">Comprar</button>
+              </div>
+            ))
+          }
         </div>
       </main>
       <Footer></Footer>
