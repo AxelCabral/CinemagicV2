@@ -1,112 +1,119 @@
-import { Key, ReactElement, JSXElementConstructor, ReactFragment, ReactPortal } from 'react';
-import { salesApi } from '../../lib/axios';
-import Footer from '../components/footer';
+/*import Footer from '../components/footer';
 import Navbar from '../components/navBar';
-import Link from 'next/link';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus, faTrash, faPen } from '@fortawesome/free-solid-svg-icons';
+import { FormEvent, useState } from 'react';
+import { movieApi } from '../../lib/axios';
 import swal from 'sweetalert';
+import Router, { withRouter } from 'next/router'
 import ReturnButton from '../components/returnButton';
 
-interface salesProps {
-  sales: {
-    map: any; id: string, cinema_id: string, value: string, type: string, description: string;
-  }
-}
-export const getServerSideProps = async () => {
-
-  const response = await salesApi.get("sales");
-  return {
-    props: {
-      sales: response.data.sales
+interface ReportProps {
+    report: {
+        id: string,
+        title: string,
     }
-  }
-}
-function reload() {
-  window.location.reload();
 }
 
-export const sendDeleteHeader = async (salesID: Key | null | undefined) => {
-  const headerSent = await salesApi.delete("sales/id/delete", {
-    headers: {
-      'id': salesID
+export default function Index(props: MovieProps) {
+    const [title, setTitle] = useState("");
+    const [releaseDate, setReleaseDate] = useState("");
+    const [lengthInMinutes, setLengthInMinutes] = useState<number | undefined>(undefined);
+    const [coverUrl, setCoverUrl] = useState("");
+    const [synopsis, setSynopsis] = useState("");
+    const [parentalRatingType, setParentalRatingType] = useState("");
+    const [dubbedVersion, setDubbedVersion] = useState("");
+    const [subtitledVersion, setSubtitledVersion] = useState("");
+    const [originalLanguage, setOriginalLanguage] = useState("");
+
+    async function registerMovie(event: FormEvent) {
+        event.preventDefault();
+
+        try {
+            const response = await movieApi.post('movie/new', {
+                title: title,
+                releaseDate: releaseDate,
+                lengthInMinutes: lengthInMinutes,
+                coverUrl: coverUrl,
+                synopsis: synopsis,
+                parentalRatingType: parentalRatingType,
+                dubbedVersion: Boolean(JSON.parse(dubbedVersion)),
+                subtitledVersion: Boolean(JSON.parse(subtitledVersion)),
+                originalLanguage: originalLanguage,
+            });
+
+            setTitle('');
+            setReleaseDate('');
+            setLengthInMinutes(undefined);
+            setCoverUrl('');
+            setSynopsis('');
+            setParentalRatingType('');
+            setDubbedVersion('');
+            setSubtitledVersion('');
+            setOriginalLanguage('');
+
+            Router.push({ pathname: '/movies/registerPartTwo', query: { title: title } });
+        } catch (error) {
+            console.log(error);
+            swal("Falha!", "Falha ao criar o filme, tente novamente!", "error");
+        }
     }
-  });
-  swal("Sucesso!", headerSent.data.message, "success", {
-    timer: 3000,
-  });
-  await new Promise(resolve => setTimeout(resolve, 3000));
-  return reload();
+    return (
+        <div className="main-container">
+            <Navbar></Navbar>
+            <main className="users-container">
+                <ReturnButton></ReturnButton>
+                <div className="container-register movie-grid-form">
+                    <span className="register-title movie-grid">
+                        Cadastro de Filmes
+                    </span>
+                    <form className="register-form" onSubmit={registerMovie}>
+                        <div className="centered-movie-grid-form">
+                            <div className="wrap-register movie-grid-form">
+                            </div>
+                            <div className="wrap-register movie-grid-form">
+                                <div className="wrap-input">
+                                    <select className={parentalRatingType !== "" ? 'has-val input-register-form' : 'input-register-form'}
+                                        value={parentalRatingType}
+                                        onChange={e => setParentalRatingType(e.target.value)}
+                                    >
+                                        <option value="Janeiro">Janeiro</option>
+                                        <option value="Fevereiro">Fevereiro</option>
+                                        <option value="Março">Março</option>
+                                        <option value="Abril">Abril</option>
+                                        <option value="Maio">Maio</option>
+                                        <option value="Junho">Junho</option>
+                                        <option value="Julho">Julho</option>
+                                        <option value="Agosto">Agosto</option>
+                                        <option value="Setembro">Setembro</option>
+                                        <option value="Outubro">Outubro</option>
+                                        <option value="Novembro">Novembro</option>
+                                        <option value="Dezembro">Dezembro</option>
+                                    </select>
+                                    <span className="input-effect" data-placeholder='Mês'></span>
+                                </div>
+                                <div className="wrap-input">
+                                    <input className={originalLanguage !== "" ? 'has-val input-register-form' : 'input-register-form'} type="text"
+                                        value={originalLanguage}
+                                        onChange={e => setOriginalLanguage(e.target.value)}
+                                    />
+                                    <span className="input-effect" data-placeholder='Idioma Original'></span>
+                                </div>
+                                <div className="wrap-input">
+                                    <input className={coverUrl !== "" ? 'has-val input-register-form' : 'input-register-form'} type="text"
+                                        value={coverUrl}
+                                        onChange={e => setCoverUrl(e.target.value)}
+                                    />
+                                    <span className="input-effect" data-placeholder='Link da Capa'></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="container-register-form-btn">
+                            <button className="register-form-btn movie-btn">Gerar Relatório</button>
+                        </div>
+                    </form>
+                </div>
+            </main >
+            <Footer></Footer>
+        </div >
+    )
 }
-
-export default function Index(props: salesProps) {
-  return (
-    <div className="main-container">
-      <Navbar></Navbar>
-      <main className="sales-container">
-        <ReturnButton></ReturnButton>
-        <div className='data-table-title'>
-          <div className='main-text-title'>
-            <h2 className="movies-section-title">Relatório do mês de {new Date().toLocaleString("pt-BR", { month: "long" })}</h2>
-          </div>
-        </div>
-        <div className='list-out-main'>
-          <div className='list-out-data'>
-            <div className='data-table'>
-             <div className='profit-area'>
-             <br />
-              <p>Lucro do mês:<strong> R$</strong> 2.300,00</p>
-              <br />
-              <hr />
-              <br />
-              <p>Entrada do mês:<strong> R$</strong> 4.800,55</p>
-              <br />
-              <hr />
-              <br />
-              <p>Despesas do mês:<strong> R$</strong> 2.500,55</p>
-              <br />
-             </div>
-            </div>
-          </div>
-        </div>
-        <div className='list-out-main'>
-          <div className='list-out-data'>
-            <div className='data-table'>
-              <table className="users-table-list">
-                <tbody>
-                  <tr>
-                    <th>Valor</th>
-                    <th>Tipo</th>
-                    <th>Descrição</th>
-                    <th>Ações</th>
-                  </tr>
-                  {
-                    props.sales.map((sales: { id: Key | null | undefined; cinema_id: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal | null | undefined; value: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal | null | undefined; type: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal | null | undefined; description: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal | null | undefined; }) => (
-                      <tr key={sales.id}>
-                        <td>R$ {sales.value}</td>
-                        <td>{sales.type}</td>
-                        <td>{sales.description}</td>
-                        <td><span onClick={() => sendDeleteHeader(sales.id)} className='icon fa-trash'><FontAwesomeIcon icon={faTrash} /></span>
-                          │
-                          <Link
-                            href={{
-                              pathname: '/sales/update',
-                              query: { id: sales.id },
-                            }}
-                          >
-                            <span className='icon fa-pen'><FontAwesomeIcon icon={faPen} /></span>
-                          </Link>
-                        </td>
-                      </tr>
-                    ))
-                  }
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </main >
-      <Footer></Footer>
-    </div >
-  )
-}
+*/
