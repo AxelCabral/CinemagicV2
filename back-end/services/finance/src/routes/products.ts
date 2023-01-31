@@ -2,6 +2,49 @@ import { FastifyInstance } from 'fastify';
 import { prisma } from '../lib/prisma'
 import { z } from 'zod'
 
+class Product {
+    name: String;
+    price: number;
+
+    constructor(name: String, price: number) {
+        this.name = name;
+        this.price = price;
+    }
+
+    getPrice() {
+        return this.price;
+    }
+}
+
+class SuperProduct {
+    children: Product[];
+
+    constructor() {
+        this.children = [];
+    }
+
+    add(Product: Product) {
+        this.children.push(Product);
+    }
+
+    remove(Product: Product) {
+        const index = this.children.indexOf(Product);
+        this.children.splice(index, 1);
+    }
+
+    getChild(index: number) {
+        return this.children[index];
+    }
+
+    getPrice() {
+        let total = 0;
+        for (const child of this.children) {
+            total += child.getPrice();
+        }
+        return total;
+    }
+}
+
 export async function productsRoutes(fastify: FastifyInstance) {
     fastify.get('/products', async () => {
 
@@ -14,7 +57,7 @@ export async function productsRoutes(fastify: FastifyInstance) {
 
         const createproductsBody = z.object({
             urlImg: z.string(),
-            price: z.number(), 
+            price: z.number(),
             name: z.string(),
         })
 
@@ -35,7 +78,7 @@ export async function productsRoutes(fastify: FastifyInstance) {
 
     fastify.delete('/products/:id/delete', async (request, reply) => {
         const id = String(request.headers.id);
-        
+
         const sale = await prisma.products.findUnique({
             where: {
                 id,
@@ -60,10 +103,10 @@ export async function productsRoutes(fastify: FastifyInstance) {
     })
 
     fastify.post('/products/:id/update', async (request, reply) => {
-        
+
         const createproductsBody = z.object({
             urlImg: z.string(),
-            price: z.number(), 
+            price: z.number(),
             name: z.string(),
         })
 
@@ -111,4 +154,25 @@ export async function productsRoutes(fastify: FastifyInstance) {
         return { products }
     })
 
+    /*fastify.get("/testSP", async (request, reply) => {
+        const idList = String(request.headers.ids);
+        const idArray = idList.split(",");
+        const products = await prisma.products.findMany()
+        idArray.forEach((id) => {
+           if( == id){
+
+           }
+        })
+        const product1 = new Product("Product 1", 50);
+        const product2 = new Product("Product 2", 60);
+        const superProduct = new SuperProduct();
+        superProduct.add(product1);
+        superProduct.add(product2);
+
+        reply.send({
+            price: superProduct.getPrice(),
+            idList: idArray,
+            valores: products
+        });
+    });*/
 }
