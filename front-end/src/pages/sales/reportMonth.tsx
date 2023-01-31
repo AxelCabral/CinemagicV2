@@ -2,10 +2,6 @@ import { Key, ReactElement, JSXElementConstructor, ReactFragment, ReactPortal } 
 import { salesApi } from '../../lib/axios';
 import Footer from '../components/footer';
 import Navbar from '../components/navBar';
-import Link from 'next/link';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus, faTrash, faPen } from '@fortawesome/free-solid-svg-icons';
-import swal from 'sweetalert';
 import ReturnButton from '../components/returnButton';
 
 interface salesProps {
@@ -15,28 +11,12 @@ interface salesProps {
 }
 export const getServerSideProps = async () => {
 
-  const response = await salesApi.get("sales");
+  const response = await salesApi.get("report/info");
   return {
     props: {
       sales: response.data.sales
     }
   }
-}
-function reload() {
-  window.location.reload();
-}
-
-export const sendDeleteHeader = async (salesID: Key | null | undefined) => {
-  const headerSent = await salesApi.delete("sales/id/delete", {
-    headers: {
-      'id': salesID
-    }
-  });
-  swal("Sucesso!", headerSent.data.message, "success", {
-    timer: 3000,
-  });
-  await new Promise(resolve => setTimeout(resolve, 3000));
-  return reload();
 }
 
 export default function Index(props: salesProps) {
@@ -47,7 +27,7 @@ export default function Index(props: salesProps) {
         <ReturnButton></ReturnButton>
         <div className='data-table-title'>
           <div className='main-text-title'>
-            <h2 className="movies-section-title">Relatório do mês de {new Date().toLocaleString("pt-BR", { month: "long" })}</h2>
+            <h2 className="movies-section-title">Relatório do mês</h2>
           </div>
         </div>
         <div className='list-out-main'>
@@ -55,15 +35,17 @@ export default function Index(props: salesProps) {
             <div className='data-table'>
              <div className='profit-area'>
              <br />
-              <p>Lucro do mês:<strong> R$</strong> 2.300,00</p>
+              <p>Lucro do mês: {
+              
+              (2300).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})} </p>
               <br />
               <hr />
               <br />
-              <p>Entrada do mês:<strong> R$</strong> 4.800,55</p>
+              <p>Entrada do mês: {(4800).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})} </p>
               <br />
               <hr />
               <br />
-              <p>Despesas do mês:<strong> R$</strong> 2.500,55</p>
+              <p>Despesas do mês: {(2500.55).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})} </p>
               <br />
              </div>
             </div>
@@ -78,25 +60,15 @@ export default function Index(props: salesProps) {
                     <th>Valor</th>
                     <th>Tipo</th>
                     <th>Descrição</th>
-                    <th>Ações</th>
+                    <th>Data</th>
                   </tr>
                   {
-                    props.sales.map((sales: { id: Key | null | undefined; cinema_id: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal | null | undefined; value: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal | null | undefined; type: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal | null | undefined; description: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal | null | undefined; }) => (
+                    props.sales.map((sales: { id: Key | null | undefined; value: any; type: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal | null | undefined; description: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal | null | undefined; saleDate: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal | null | undefined; }) => (
                       <tr key={sales.id}>
-                        <td>R$ {sales.value}</td>
+                        <td>{(sales.value).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</td>
                         <td>{sales.type}</td>
                         <td>{sales.description}</td>
-                        <td><span onClick={() => sendDeleteHeader(sales.id)} className='icon fa-trash'><FontAwesomeIcon icon={faTrash} /></span>
-                          │
-                          <Link
-                            href={{
-                              pathname: '/sales/update',
-                              query: { id: sales.id },
-                            }}
-                          >
-                            <span className='icon fa-pen'><FontAwesomeIcon icon={faPen} /></span>
-                          </Link>
-                        </td>
+                        <td>{sales.saleDate}</td>
                       </tr>
                     ))
                   }

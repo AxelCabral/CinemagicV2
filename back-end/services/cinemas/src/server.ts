@@ -17,7 +17,7 @@ async function bootstrap() {
     await fastify.register(cinemaRoutes)
     await fastify.register(employeerRoutes)
 
-    await fastify.listen({ port: 3331 })
+    await fastify.listen({ port: 3337 })
 }
 
 bootstrap()

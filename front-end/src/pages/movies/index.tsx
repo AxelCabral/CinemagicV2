@@ -5,7 +5,7 @@ import Navbar from '../components/navBar';
 import moment from 'moment';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus, faTrash, faPen } from '@fortawesome/free-solid-svg-icons';
+import { faPlus, faTrash } from '@fortawesome/free-solid-svg-icons';
 import swal from 'sweetalert';
 import ReturnButton from '../components/returnButton';
 

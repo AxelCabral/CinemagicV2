@@ -115,4 +115,30 @@ export async function salesRoutes(fastify: FastifyInstance) {
         return { sales }
     })
 
+    fastify.get('/report/info', async (request) => {
+        const cinema_id = String(request.headers.cinema_id);
+        const month = String(request.headers.month);
+        const year = String(request.headers.year);
+        
+        const startTime = new Date(year+'-'+month+'-01');
+        const endTime = new Date(year+'-'+month+'-31');
+
+
+        const sales = await prisma.sales.findMany({
+            where: {
+                AND: [
+                  { cinema_id: cinema_id },
+                  {
+                    createdAt: {
+                      gte: startTime,
+                      lte: endTime
+                    }
+                  }
+                ]
+              }
+        })
+
+        return { sales }
+    })
+
 }

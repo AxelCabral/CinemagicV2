@@ -16,7 +16,7 @@ model Sales {
   type        String
   description String
   cinema_id   String
-  saleDate    DateTime
+  createdAt   DateTime @default(now())
 
   @@map("sales")
 }

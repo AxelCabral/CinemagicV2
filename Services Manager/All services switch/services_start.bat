@@ -7,6 +7,9 @@ start cmd /k "yarn dev"
 cd ../
 cd finance
 start cmd /k "yarn dev"
+cd ../
+cd cinemas
+start cmd /k "yarn dev"
 cd ../../../
 cd front-end
 start cmd /k "yarn dev"
