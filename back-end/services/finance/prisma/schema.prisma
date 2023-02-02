@@ -17,6 +17,7 @@ model Sales {
   description String
   cinema_id   String
   saleDate    DateTime
+  userID      String
 
   @@map("sales")
 }
@@ -29,3 +30,15 @@ model Products {
 
   @@map("products")
 }
+
+model Combo {
+  id           String  @id @default(uuid())
+  urlImg       String
+  name         String
+  active       Boolean
+  promotional  Float   @default(0)
+  totalPrice   Float   @default(0)
+
+  @@map("combo")
+}
+

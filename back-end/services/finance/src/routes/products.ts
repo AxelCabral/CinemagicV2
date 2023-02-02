@@ -18,9 +18,11 @@ class Product {
 
 class SuperProduct {
     children: Product[];
+    discount: number;
 
-    constructor() {
+    constructor(discount: number) {
         this.children = [];
+        this.discount = discount
     }
 
     add(Product: Product) {
@@ -49,8 +51,13 @@ export async function productsRoutes(fastify: FastifyInstance) {
     fastify.get('/products', async () => {
 
         const products = await prisma.products.findMany()
+        const combos = await prisma.combo.findMany({
+            where: {
+                active: true
+            }
+        });
 
-        return { products }
+        return { products, combos }
     });
 
     fastify.post('/products/new', async (request, reply) => {

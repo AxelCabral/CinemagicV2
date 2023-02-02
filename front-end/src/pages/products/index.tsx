@@ -8,6 +8,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faTrash, faPen } from '@fortawesome/free-solid-svg-icons';
 import swal from 'sweetalert';
 import ReturnButton from '../components/returnButton';
+import { isPropertySignature } from 'typescript';
+import { RESPONSE_LIMIT_DEFAULT } from 'next/dist/server/api-utils';
 
 interface ProductProps {
   product: {
@@ -17,6 +19,15 @@ interface ProductProps {
     price: number,
     urlImg: string,
   }
+  combo: {
+    map: any;
+    id: string;
+    name: string;
+    urlImg: string;
+    totalPrice: number;
+    promotional: number;
+    active: boolean;
+  }
 }
 
 export const getServerSideProps = async () => {
@@ -25,6 +36,7 @@ export const getServerSideProps = async () => {
   return {
     props: {
       product: response.data.products,
+      combo: response.data.combos,
     }
   }
 }
@@ -47,6 +59,16 @@ export default function Index(props: ProductProps) {
                 <img className="product-list-item-img" src={product.urlImg} alt="Imagem Produto" />
                 <p className="product-name">{product.name}</p>
                 <p className="product-price">R$ {product.price}</p>
+                <button className="product-buy-btn">Comprar</button>
+              </div>
+            ))
+          }
+          {
+            props.combo.map((combo: any) => (
+              <div key={combo.id} className="movie-list-item product-list-item">
+                <img className="product-list-item-img" src={combo.urlImg} alt="Imagem Produto" />
+                <p className="product-name">{combo.name}</p>
+                <p className="product-price">R$ {combo.totalPrice}</p>
                 <button className="product-buy-btn">Comprar</button>
               </div>
             ))
