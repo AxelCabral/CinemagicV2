@@ -161,25 +161,5 @@ export async function productsRoutes(fastify: FastifyInstance) {
         return { products }
     })
 
-    /*fastify.get("/testSP", async (request, reply) => {
-        const idList = String(request.headers.ids);
-        const idArray = idList.split(",");
-        const products = await prisma.products.findMany()
-        idArray.forEach((id) => {
-           if( == id){
-
-           }
-        })
-        const product1 = new Product("Product 1", 50);
-        const product2 = new Product("Product 2", 60);
-        const superProduct = new SuperProduct();
-        superProduct.add(product1);
-        superProduct.add(product2);
-
-        reply.send({
-            price: superProduct.getPrice(),
-            idList: idArray,
-            valores: products
-        });
-    });*/
+    
 }

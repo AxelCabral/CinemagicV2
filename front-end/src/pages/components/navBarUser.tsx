@@ -25,6 +25,11 @@ export default function NavbarUser() {
             <li className="menu-list-item">
               <a href="movies">Membro</a>
             </li>
+            <li className="cart-container">
+              <a href="/products/cart">
+                <div className="cart-picture"></div>
+              </a>
+            </li>
             <li className="profile-container">
               <a href="login">
                 <div className="profile-picture"></div>Login

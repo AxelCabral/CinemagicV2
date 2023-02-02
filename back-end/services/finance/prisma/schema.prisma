@@ -23,22 +23,34 @@ model Sales {
 }
 
 model Products {
-  id     String @id @default(uuid())
-  urlImg String
-  price  Float
-  name   String
+  id           String         @id @default(uuid())
+  urlImg       String
+  price        Float
+  name         String
+  shoppingCart shoppingCart[]
 
   @@map("products")
 }
 
 model Combo {
-  id           String  @id @default(uuid())
+  id           String         @id @default(uuid())
   urlImg       String
   name         String
   active       Boolean
-  promotional  Float   @default(0)
-  totalPrice   Float   @default(0)
+  promotional  Float          @default(0)
+  totalPrice   Float          @default(0)
+  shoppingCart shoppingCart[]
 
   @@map("combo")
 }
 
+model shoppingCart {
+  cartId     String    @id @default(uuid())
+  userId     String
+  productID  String?
+  comboID    String?
+  hasProduct Products? @relation(fields: [productID], references: [id])
+  hasCombo   Combo?    @relation(fields: [comboID], references: [id])
+
+  @@map("shoppingCart")
+}

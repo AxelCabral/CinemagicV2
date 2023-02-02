@@ -41,6 +41,23 @@ export const getServerSideProps = async () => {
   }
 }
 
+function reload() {
+  window.location.reload();
+}
+
+export const sendToCart = async (id: string | Key | null | undefined) => {
+
+  const headerSent = await salesApi.post("products/cart/id/add", {
+    headers: {
+      'id': id
+    }
+  });
+  swal("Adicionado ao Carrinho!", headerSent.data.message, "success", {
+    timer: 3000,
+  });
+
+}
+
 export default function Index(props: ProductProps) {
   return (
     <div className="main-container">
@@ -54,12 +71,12 @@ export default function Index(props: ProductProps) {
         </div>
         <div className="movies-list admin-list-movie" id="products-list">
           {
-            props.product.map((product: { id: Key | null | undefined; urlImg: string | undefined; name: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal | null | undefined; price: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal | null | undefined; }) => (
+            props.product.map((product: { id: Key | null | undefined; urlImg: string | undefined; name: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal | null | undefined; price: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal; }) => (
               <div key={product.id} className="movie-list-item product-list-item">
                 <img className="product-list-item-img" src={product.urlImg} alt="Imagem Produto" />
                 <p className="product-name">{product.name}</p>
-                <p className="product-price">R$ {product.price}</p>
-                <button className="product-buy-btn">Comprar</button>
+                <p className="product-price">{(product.price).toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}</p>
+                <button onClick={() => sendToCart(product.id)} className="product-buy-btn">Comprar</button>
               </div>
             ))
           }
@@ -68,8 +85,8 @@ export default function Index(props: ProductProps) {
               <div key={combo.id} className="movie-list-item product-list-item">
                 <img className="product-list-item-img" src={combo.urlImg} alt="Imagem Produto" />
                 <p className="product-name">{combo.name}</p>
-                <p className="product-price">R$ {combo.totalPrice}</p>
-                <button className="product-buy-btn">Comprar</button>
+                <p className="product-price">{(combo.totalPrice).toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}</p>
+                <button onClick={() => sendToCart(combo.id)} className="product-buy-btn">Comprar</button>
               </div>
             ))
           }
