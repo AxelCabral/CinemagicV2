@@ -47,11 +47,12 @@ function reload() {
 
 export const sendToCart = async (id: string | Key | null | undefined) => {
 
-  const headerSent = await salesApi.post("products/cart/id/add", {
+  const headerSent = await salesApi.post("products/cart/id/add", {}, {
     headers: {
       'id': id
     }
   });
+
   swal("Adicionado ao Carrinho!", headerSent.data.message, "success", {
     timer: 3000,
   });

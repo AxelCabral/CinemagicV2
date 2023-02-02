@@ -17,19 +17,23 @@ export async function salesRoutes(fastify: FastifyInstance) {
             value: z.number(),
             type: z.string(),
             description: z.string(),
-            createdAt: z.string(),
             userID: z.string(),
         })
 
-        const { cinema_id, value, type, description, createdAt, userID } = createSalesBody.parse(request.body)
+        const { cinema_id, value, type, description, userID } = createSalesBody.parse(request.body)
 
+        await prisma.shoppingCart.deleteMany({
+            where: {
+                userId: userID,
+            }
+        })
+        
         await prisma.sales.create({
             data: {
                 cinema_id,
                 value,
                 type,
                 description,
-                createdAt,
                 userID,
             }
         })

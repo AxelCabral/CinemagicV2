@@ -1,18 +1,10 @@
-import {
-    Key,
-    ReactElement,
-    JSXElementConstructor,
-    ReactFragment,
-    ReactPortal,
-} from "react";
 import { salesApi } from "../../lib/axios";
 import Footer from "../components/footer";
 import Navbar from "../components/navBar";
-import Link from "next/link";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus, faTrash, faPen, faMinusCircle, faPlusCircle } from "@fortawesome/free-solid-svg-icons";
 import swal from "sweetalert";
 import ReturnButton from "../components/returnButton";
+import { FormEvent, useState } from 'react';
+import Router from 'next/router';
 
 interface CartProps {
     Pcart: {
@@ -56,25 +48,44 @@ export const getServerSideProps = async () => {
     }
 }
 
-function reload() {
-    window.location.reload();
-}
-
-export const sendDeleteHeader = async (cartId: string | Key | null | undefined) => {
-
-    const headerSent = await salesApi.delete("products/cart/id/delete", {
-        headers: {
-            'id': cartId
-        }
-    });
-    swal("Sucesso!", headerSent.data.message, "success", {
-        timer: 3000,
-    });
-    await new Promise(resolve => setTimeout(resolve, 3000));
-    return reload();
-}
-
 export default function Car(props: CartProps) {
+    var Total_Price = 0;
+    var Name_List = [''];
+    Name_List.pop();
+
+    props.Pcart != null ? props.Pcart.map((product: any) => (
+        Total_Price += product.hasProduct.price,
+        Name_List.push(product.hasProduct.name)
+    )) : props.Pcart == null
+
+    props.Ccart != null ? props.Ccart.map((product: any) => (
+        Total_Price += product.hasCombo.totalPrice,
+        Name_List.push(product.hasCombo.name)
+    )) : props.Ccart == null
+
+    const nameListJoined = Name_List.join(',')
+    async function registerSale(event: FormEvent) {
+        event.preventDefault();
+
+        try {
+            const response = await salesApi.post('sales/new', {
+                type: 'Venda',
+                description: nameListJoined,
+                value: Total_Price,
+                userID: 'userID123',
+                cinema_id: 'x',
+            });
+
+            if (response.status == 201) {
+                swal("Sucesso!", response.data.message, "success");
+            }
+            Router.push({ pathname: '/' });
+        } catch (error) {
+            console.log(error);
+            swal("Falha!", "Falha ao finalizar a venda, tente novamente!", "error");
+        }
+    }
+
     return (
         <div className="main-container">
             <Navbar></Navbar>
@@ -82,19 +93,7 @@ export default function Car(props: CartProps) {
                 <ReturnButton></ReturnButton>
                 <div className="data-table-title">
                     <div className="main-text-title">
-                        <h2 className="movies-section-title">Compras</h2>
-                    </div>
-                    <div className="button-table-style plus">
-                        <a
-                            href="/products/"
-                            title="Comprar mais produtos"
-                            target="_self"
-                            rel="next"
-                        >
-                            <span className="icon fa-plus">
-                                <FontAwesomeIcon icon={faPlus} />
-                            </span>
-                        </a>
+                        <h2 className="movies-section-title">Finalização de Compra</h2>
                     </div>
                 </div>
                 <div className="list-out-main">
@@ -105,20 +104,12 @@ export default function Car(props: CartProps) {
                                     <tr>
                                         <th>Produto</th>
                                         <th>Preço</th>
-                                        {/*<th>Quantidade</th>*/}
-                                        <th>Ações</th>
                                     </tr>
                                     {
                                         props.Pcart != null ? props.Pcart.map((product: any) => (
                                             <tr key={product.cartId}>
                                                 <td>{product.hasProduct.name}</td>
                                                 <td>{(product.hasProduct.price).toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}</td>
-                                                {/*<td>01</td>*/}
-                                                <td>
-                                                    <span onClick={() => sendDeleteHeader(product.cartId)} className="icon fa-trash">
-                                                        <FontAwesomeIcon icon={faTrash} />
-                                                    </span>
-                                                </td>
                                             </tr>
                                         )) : props.Pcart == null
                                     }
@@ -127,18 +118,28 @@ export default function Car(props: CartProps) {
                                             <tr key={product.cartId}>
                                                 <td>{product.hasCombo.name}</td>
                                                 <td>{(product.hasCombo.totalPrice).toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}</td>
-                                                {/*<td>01</td>*/}
-                                                <td>
-                                                    <span onClick={() => sendDeleteHeader(product.cartId)} className="icon fa-trash">
-                                                        <FontAwesomeIcon icon={faTrash} />
-                                                    </span>
-                                                </td>
                                             </tr>
                                         )) : props.Ccart == null
                                     }
                                 </tbody>
                             </table>
-                            <a href="/sales/finishSale"><button className="product-buy-btn">Prosseguir Compra</button></a>
+                            <table className="users-table-list">
+                                <tbody>
+                                    <tr>
+                                        <th>Método de Pagamento</th>
+                                        <th>Preço Total</th>
+                                    </tr>
+                                    <tr>
+                                        <td>Cartão de Crédito</td>
+                                        <td>{(Total_Price).toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <form className="register-form" onSubmit={registerSale}>
+                                <div className="container-register-form-btn">
+                                    <button className="register-form-btn">Finalizar Compra</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
