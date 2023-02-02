@@ -32,7 +32,7 @@ export default function Navbar() {
               <a href="/cinema">Cinemas</a>
             </li>
             <li className="profile-container">
-              <a href="login">
+              <a href="/users/profile">
                 <div className="profile-picture"></div>Login
               </a>
             </li>

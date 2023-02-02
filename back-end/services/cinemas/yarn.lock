@@ -23,10 +23,10 @@
     chalk "^2.0.0"
     js-tokens "^4.0.0"
 
-"@esbuild-kit/cjs-loader@^2.4.0":
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/@esbuild-kit/cjs-loader/-/cjs-loader-2.4.0.tgz#643c4b2855a18f31cd983794536d4ff64d3b410d"
-  integrity sha512-DBBCiHPgL2B/elUpvCDhNHXnlZQ9sfO2uyt1OJyAXKT41beQEFY4OxZ6gwS+ZesRCbZ6JV8M7GEyOPkjv8kdIw==
+"@esbuild-kit/cjs-loader@^2.4.1":
+  version "2.4.1"
+  resolved "https://registry.yarnpkg.com/@esbuild-kit/cjs-loader/-/cjs-loader-2.4.1.tgz#5c1183ac3906223f0da3bb4ff5b74d0f0b13c326"
+  integrity sha512-lhc/XLith28QdW0HpHZvZKkorWgmCNT7sVelMHDj3HFdTfdqkwEKvT+aXVQtNAmCC39VJhunDkWhONWB7335mg==
   dependencies:
     "@esbuild-kit/core-utils" "^3.0.0"
     get-tsconfig "^4.2.0"
@@ -39,10 +39,10 @@
     esbuild "~0.15.10"
     source-map-support "^0.5.21"
 
-"@esbuild-kit/esm-loader@^2.5.0":
-  version "2.5.0"
-  resolved "https://registry.yarnpkg.com/@esbuild-kit/esm-loader/-/esm-loader-2.5.0.tgz#af208eb9e0449038e7f35957ec51b7e70135e116"
-  integrity sha512-ySs0qOsiwj+hsgZM9/MniGdvfa9/WzqfFuIia8/5gSUPeIQIX2/tG91QakxPFOR35VFiwTB7wCiHtiS6dc6SkA==
+"@esbuild-kit/esm-loader@^2.5.4":
+  version "2.5.4"
+  resolved "https://registry.yarnpkg.com/@esbuild-kit/esm-loader/-/esm-loader-2.5.4.tgz#cd31fe93963f3e21b1c1d07eef2bd2df1b574326"
+  integrity sha512-afmtLf6uqxD5IgwCzomtqCYIgz/sjHzCWZFvfS5+FzeYxOURPUo4QcHtqJxbxWOMOogKriZanN/1bJQE/ZL93A==
   dependencies:
     "@esbuild-kit/core-utils" "^3.0.0"
     get-tsconfig "^4.2.0"
@@ -100,12 +100,19 @@
     commander "^9.0.0"
     puppeteer "^19.0.0"
 
-"@prisma/client@^4.6.0", "@prisma/client@^4.6.1":
+"@prisma/client@^4.6.0":
   version "4.6.1"
   resolved "https://registry.yarnpkg.com/@prisma/client/-/client-4.6.1.tgz#e8e1d347ecbff44158d21b6591bb99650c8503a8"
   integrity sha512-M1+NNrMzqaOIxT7PBGcTs3IZo7d1EW/+gVQd4C4gUgWBDGgD9AcIeZnUSidgWClmpMSgVUdnVORjsWWGUameYA==
   dependencies:
     "@prisma/engines-version" "4.6.1-3.694eea289a8462c80264df36757e4fdc129b1b32"
+
+"@prisma/client@^4.9.0":
+  version "4.9.0"
+  resolved "https://registry.yarnpkg.com/@prisma/client/-/client-4.9.0.tgz#4a4068f3540732ea5723c008d49ed684d20f9340"
+  integrity sha512-bz6QARw54sWcbyR1lLnF2QHvRW5R/Jxnbbmwh3u+969vUKXtBkXgSgjDA85nji31ZBlf7+FrHDy5x+5ydGyQDg==
+  dependencies:
+    "@prisma/engines-version" "4.9.0-42.ceb5c99003b99c9ee2c1d2e618e359c14aef2ea5"
 
 "@prisma/debug@4.6.1":
   version "4.6.1"
@@ -120,6 +127,11 @@
   version "4.6.1-3.694eea289a8462c80264df36757e4fdc129b1b32"
   resolved "https://registry.yarnpkg.com/@prisma/engines-version/-/engines-version-4.6.1-3.694eea289a8462c80264df36757e4fdc129b1b32.tgz#90a71bbdfd5172fc674009346a6ad6b84410cc0a"
   integrity sha512-HUCmkXAU2jqp2O1RvNtbE+seLGLyJGEABZS/R38rZjSAafAy0WzBuHq+tbZMnD+b5OSCsTVtIPVcuvx1ySxcWQ==
+
+"@prisma/engines-version@4.9.0-42.ceb5c99003b99c9ee2c1d2e618e359c14aef2ea5":
+  version "4.9.0-42.ceb5c99003b99c9ee2c1d2e618e359c14aef2ea5"
+  resolved "https://registry.yarnpkg.com/@prisma/engines-version/-/engines-version-4.9.0-42.ceb5c99003b99c9ee2c1d2e618e359c14aef2ea5.tgz#9d817a5779fc05b107eb02f63d197ad296d60b3c"
+  integrity sha512-M16aibbxi/FhW7z1sJCX8u+0DriyQYY5AyeTH7plQm9MLnURoiyn3CZBqAyIoQ+Z1pS77usCIibYJWSgleBMBA==
 
 "@prisma/engines@4.6.1":
   version "4.6.1"
@@ -582,6 +594,11 @@ extract-zip@2.0.1:
   optionalDependencies:
     "@types/yauzl" "^2.9.1"
 
+fast-content-type-parse@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/fast-content-type-parse/-/fast-content-type-parse-1.0.0.tgz#cddce00df7d7efb3727d375a598e4904bfcb751c"
+  integrity sha512-Xbc4XcysUXcsP5aHUU7Nq3OwvHq97C+WnbkeIefpeYLX+ryzFJlU6OStFJhs6Ol0LkUGpcK+wL0JwfM+FCU5IA==
+
 fast-decode-uri-component@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/fast-decode-uri-component/-/fast-decode-uri-component-1.0.1.tgz#46f8b6c22b30ff7a81357d4f59abfae938202543"
@@ -626,16 +643,17 @@ fastify-plugin@^4.0.0:
   resolved "https://registry.yarnpkg.com/fastify-plugin/-/fastify-plugin-4.3.0.tgz#c6eaa87a7a0d6d1d16129e43e31d6bc1d8868e53"
   integrity sha512-M3+i368lV0OYTJ5TfClIoPKEKSOF7112iiPdwgfSR0gN98BjA1Nk+c6oBHtfcVt9KiMxl+EQKHC1QNWo3ZOpYQ==
 
-fastify@^4.10.0:
-  version "4.10.0"
-  resolved "https://registry.yarnpkg.com/fastify/-/fastify-4.10.0.tgz#9edc2bffcd36875aef2243f3d7d1fe6486610f6a"
-  integrity sha512-8yQPT+c/EbETjNxwM9PHeu2U4eXMoXTva0L9zoVgv7/ZCBtovWpfK4RKexhyh5Va3Jg82HovnfCxoZmwcZDfsQ==
+fastify@^4.12.0:
+  version "4.12.0"
+  resolved "https://registry.yarnpkg.com/fastify/-/fastify-4.12.0.tgz#e5330215d95702336693b38b2e66d34ee8300d3e"
+  integrity sha512-Hh2GCsOCqnOuewWSvqXlpq5V/9VA+/JkVoooQWUhrU6gryO9+/UGOoF/dprGcKSDxkM/9TkMXSffYp8eA/YhYQ==
   dependencies:
     "@fastify/ajv-compiler" "^3.3.1"
     "@fastify/error" "^3.0.0"
     "@fastify/fast-json-stringify-compiler" "^4.1.0"
     abstract-logging "^2.0.1"
     avvio "^8.2.0"
+    fast-content-type-parse "^1.0.0"
     find-my-way "^7.3.0"
     light-my-request "^5.6.1"
     pino "^8.5.0"
@@ -1212,14 +1230,14 @@ tr46@~0.0.3:
   resolved "https://registry.yarnpkg.com/tr46/-/tr46-0.0.3.tgz#8184fd347dac9cdc185992f3a6622e14b9d9ab6a"
   integrity sha512-N3WMsuqV66lT30CrXNbEjx4GEwlow3v6rr4mCcv6prnfwhS01rkgyFdjPNBYd9br7LpXV1+Emh01fHnq2Gdgrw==
 
-tsx@^3.12.1:
-  version "3.12.1"
-  resolved "https://registry.yarnpkg.com/tsx/-/tsx-3.12.1.tgz#d07532004c573bfea50a4ac687aa7270b3e34277"
-  integrity sha512-Rcg1x+rNe7qwlP8j7kx4VjP/pJo/V57k+17hlrn6a7FuQLNwkaw5W4JF75tYornNVCxkXdSUnqlIT8JY/ttvIw==
+tsx@^3.12.2:
+  version "3.12.2"
+  resolved "https://registry.yarnpkg.com/tsx/-/tsx-3.12.2.tgz#1c8a4fa08a97739e6eedf0ad464bd8218e1a64f0"
+  integrity sha512-ykAEkoBg30RXxeOMVeZwar+JH632dZn9EUJVyJwhfag62k6UO/dIyJEV58YuLF6e5BTdV/qmbQrpkWqjq9cUnQ==
   dependencies:
-    "@esbuild-kit/cjs-loader" "^2.4.0"
+    "@esbuild-kit/cjs-loader" "^2.4.1"
     "@esbuild-kit/core-utils" "^3.0.0"
-    "@esbuild-kit/esm-loader" "^2.5.0"
+    "@esbuild-kit/esm-loader" "^2.5.4"
   optionalDependencies:
     fsevents "~2.3.2"
 
@@ -1296,7 +1314,7 @@ yauzl@^2.10.0:
     buffer-crc32 "~0.2.3"
     fd-slicer "~1.1.0"
 
-zod@^3.19.1:
-  version "3.19.1"
-  resolved "https://registry.yarnpkg.com/zod/-/zod-3.19.1.tgz#112f074a97b50bfc4772d4ad1576814bd8ac4473"
-  integrity sha512-LYjZsEDhCdYET9ikFu6dVPGp2YH9DegXjdJToSzD9rO6fy4qiRYFoyEYwps88OseJlPyl2NOe2iJuhEhL7IpEA==
+zod@^3.20.2:
+  version "3.20.2"
+  resolved "https://registry.yarnpkg.com/zod/-/zod-3.20.2.tgz#068606642c8f51b3333981f91c0a8ab37dfc2807"
+  integrity sha512-1MzNQdAvO+54H+EaK5YpyEy0T+Ejo/7YLHS93G3RnYWh5gaotGHwGeN/ZO687qEDU2y4CdStQYXVHIgrUl5UVQ==
