@@ -1,0 +1,23 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+generator erd {
+  provider = "prisma-erd-generator"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Session {
+  id         String   @id @default(uuid())
+  date       DateTime
+  start_time String
+  capacity   Int
+  id_filme   String
+  id_cinema  String
+
+  @@map("session")
+}
