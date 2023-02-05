@@ -15,3 +15,7 @@ export const salesApi = axios.create({
 export const cinemaApi = axios.create({
   baseURL: "http://localhost:3337/",
 });	
+
+export const sessionApi = axios.create({
+  baseURL: "http://localhost:3340/",
+});	

@@ -1,4 +1,5 @@
-import { movieApi } from '../../lib/axios';
+/* eslint-disable react/jsx-key */
+import { movieApi, sessionApi } from '../../lib/axios';
 import Footer from '../components/footer';
 import NavbarUser from '../components/navBarUser';
 import moment from 'moment';
@@ -27,6 +28,15 @@ interface MovieProps {
             id: string,
             name: string,
         }
+    },
+    session:{
+        map: any;
+        id: string,
+        id_filme: string,
+        id_cinema: string,
+        date: string,
+        start_time: string,
+        capacity: number,
     }
 }
 
@@ -37,12 +47,19 @@ export const getServerSideProps = async (context: { query: { id: any; }; }) => {
             id: id,
         }
     })
+    const response2 = await sessionApi.get("session/info", {
+        headers: {
+            id: id,
+        }
+    })
     return {
         props: {
             movie: response.data.movie,
             movieFull: response.data.movieFull,
+            session: response2.data.session,
         }
     }
+    
 }
 
 export default function Index(props: MovieProps) {
@@ -110,6 +127,40 @@ export default function Index(props: MovieProps) {
                         ))
                     }
                 </div>
+                <div className="data-table-title">
+                    <div className="main-text-title">
+                        <h2 className="movies-section-title">Sessões</h2>
+                    </div>
+                </div>
+                <div className="list-out-main">
+                    <div className="list-out-data">
+                        <div className="data-table"></div>
+                <table className="users-table-list">
+                                <tbody>
+                                    <tr>
+                                        <th>Cinema</th>
+                                        <th>Data</th>
+                                        <th>Horário</th>
+                                        <th>Ingressos</th>
+                                        <th>Ação</th>
+                                    </tr>
+                                    {
+                                        props.session != null ? props.session.map((session: any) => (
+                                            <tr key={session.id}>
+                                                <td>{session.id_cinema}</td>
+                                                <td>0</td>
+                                                <td>{session.start_time}</td>
+                                                <td>{session.capacity}</td>
+                                                <td>
+                                                <button className="product-buy-btn">Comprar</button>    
+                                                </td>
+                                            </tr>
+                                        )) : props.session == null
+                                    }
+                                </tbody>
+                            </table>
+                            </div>
+                            </div>
             </main>
             <Footer></Footer>
         </div>
