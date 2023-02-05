@@ -1,4 +1,4 @@
 cd ../../
-cd back-end\services\users
+cd back-end\services\session
 start cmd /k "yarn dev"
 pause

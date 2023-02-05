@@ -229,13 +229,15 @@ button.movie-btn {
 
 .dropdown-item:hover {
   background:
-    /* gradient can be an image */
-    linear-gradient(to left,
+    /* gradient can be an image */ linear-gradient(
+      to left,
       #4623de,
       35%,
       #7733f5,
       #8423de,
-      #b721ff) left bottom #000 no-repeat;
+      #b721ff
+    )
+    left bottom #000 no-repeat;
 }
 
 .movie-gender-dropdown {
@@ -323,6 +325,22 @@ p.product-price {
   justify-content: center;
   align-items: center;
   width: 45%;
+  height: 35px;
+  margin: auto;
+  margin-top: 5px;
+  background: linear-gradient(to left, #21d4fd, #b721ff);
+}
+
+.product-buy-btn-2 {
+  font-size: 15px;
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  line-height: 1.2;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 35px;
   margin: auto;
   margin-top: 5px;

@@ -134,7 +134,7 @@ export default function Index(props: MovieProps) {
                 </div>
                 <div className="list-out-main">
                     <div className="list-out-data">
-                        <div className="data-table"></div>
+                        <div className="data-table">
                 <table className="users-table-list">
                                 <tbody>
                                     <tr>
@@ -147,18 +147,19 @@ export default function Index(props: MovieProps) {
                                     {
                                         props.session != null ? props.session.map((session: any) => (
                                             <tr key={session.id}>
-                                                <td>{session.id_cinema}</td>
-                                                <td>0</td>
+                                                <td>Cinemagic SP</td>
+                                                <td>12/02/2023</td>
                                                 <td>{session.start_time}</td>
                                                 <td>{session.capacity}</td>
                                                 <td>
-                                                <button className="product-buy-btn">Comprar</button>    
+                                                <button className="product-buy-btn-2">Comprar</button>    
                                                 </td>
                                             </tr>
                                         )) : props.session == null
                                     }
                                 </tbody>
                             </table>
+                            </div>
                             </div>
                             </div>
             </main>

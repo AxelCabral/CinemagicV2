@@ -145,5 +145,3 @@ export default function registerPartTwo(props: MovieProps) {
     )
 
 }
-
-

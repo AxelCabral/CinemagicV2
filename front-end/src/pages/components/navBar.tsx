@@ -20,9 +20,6 @@ export default function Navbar() {
               <a href="/genders">Gêneros</a>
             </li>
             <li className="menu-list-item">
-              <a href="/sessions">Sessões</a>
-            </li>
-            <li className="menu-list-item">
               <a href="/users">Usuários</a>
             </li>
             <li className="menu-list-item">

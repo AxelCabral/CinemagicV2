@@ -73,7 +73,7 @@ export default function Car(props: CartProps) {
                 description: nameListJoined,
                 value: Total_Price,
                 userID: 'userID123',
-                cinema_id: 'x',
+                cinema_id: '7ac5813c-fa9b-4ccd-8abc-ce8a99ef729f',
             });
 
             if (response.status == 201) {

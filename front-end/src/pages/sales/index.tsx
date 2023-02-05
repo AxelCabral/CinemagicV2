@@ -21,12 +21,12 @@ export default function Index(props: ReportProps) {
 
     async function generateReport(event: FormEvent) {
         event.preventDefault();
-
+            
             setMonth('');
             setYear('');
 
-            Router.push({ pathname: '/sales/reportMonth', query: { cinema_id : "7ac5813c-fa9b-4ccd-8abc-ce8a99ef729f", month: month, year : year} });
-        }
+            Router.push({ pathname: '/sales/reportMonth', query: { cinema_id: "7ac5813c-fa9b-4ccd-8abc-ce8a99ef729f", month: month, year: year} });
+        }  
     
     return (
         <div className="main-container">
