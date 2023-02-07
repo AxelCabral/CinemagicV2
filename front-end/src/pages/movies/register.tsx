@@ -135,7 +135,7 @@ export default function Index(props: MovieProps) {
                                     <span className="input-effect" data-placeholder='Dublado'></span>
                                 </div>
                                 <div className="wrap-input">
-                                    <select className={subtitledVersion !== "" ? 'has-val input-register-form' : 'input-register-form'}
+                                    <select className={subtitledVersion !== "" ? 'has-val input-register-form legenda' : 'input-register-form legenda'}
                                         value={subtitledVersion}
                                         onChange={e => setSubtitledVersion(e.target.value)}
                                     >
